@@ -14,3 +14,7 @@ config/name="gamejam-glitchgang"
 run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PlayerManager="*res://scenes/player/player_manager.gd"
