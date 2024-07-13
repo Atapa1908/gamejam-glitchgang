@@ -14,3 +14,4 @@ res://resources/inventory/item_data/item_data.gd
 res://resource scripts/inventory/item_data/item_data.gd
 res://resource scripts/inventory/inventory_data/inventory_data.gd
 res://resource scripts/inventory/consumable/consumable.gd
+res://resource scripts/inventory/slot_data/slot_data.gd
