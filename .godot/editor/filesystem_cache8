@@ -1,7 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1720902199
+::res://::1720916710
 icon.svg::CompressedTexture2D::3621610282134603035::1720883160::1720898764::1::::<><>::
 README.md::TextFile::-1::1720898783::0::1::::<><>::
+::res://assets/::1720915938
+start_button-1.png::CompressedTexture2D::6364985262499742882::1720915931::1720915938::1::::<><>::
 ::res://resource scripts/::1720898783
 ::res://resource scripts/inventory/::1720898783
 ::res://resource scripts/inventory/consumable/::1720902183
@@ -18,9 +20,9 @@ slot_data.gd::GDScript::-1::1720902183::0::1::::SlotData<>Resource<>::
 ::res://resources/inventory/inventory_data/::1720898097
 ::res://resources/inventory/item_data/::1720898096
 ::res://resources/inventory/slot_data/::1720898095
-::res://scenes/::1720898783
-game.tscn::PackedScene::248233832187734138::1720898783::0::1::::<><>::
-::res://scenes/player/::1720902183
+::res://scenes/::1720916672
+game.tscn::PackedScene::248233832187734138::1720916672::0::1::::<><>::
+::res://scenes/player/::1720916672
 player.gd::GDScript::-1::1720902183::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::5847412544147264098::1720898783::0::1::::<><>::res://scenes/player/player.gd
+player.tscn::PackedScene::5847412544147264098::1720916672::0::1::::<><>::res://scenes/player/player.gd
 player_manager.gd::GDScript::-1::1720902183::0::1::::<>Node<>::

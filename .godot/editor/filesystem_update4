@@ -1,17 +1,12 @@
 res://scenes/game.tscn
-res://scenes/Player/player.tscn
-res://scenes/Player/player.gd
-res://README.md
-res://scenes/player/player_manager.gd
 res://scenes/player/player.tscn
+res://scenes/inventory/inventory.gd
+res://scenes/inventory/inventory.tscn
+res://scenes/inventory/slot.tscn
+res://scenes/inventory/slot.gd
+res://scenes/InventoryInterface.gd
+res://scenes/game.gd
+res://scenes/inventory/pickup.tscn
+res://scenes/inventory/pickup.gd
 res://scenes/player/player.gd
-res://resources/item_data/item_data.gd
-res://resources/slot_data/slot_data.gd
-res://resources/inventory_data/inventory_data.gd
-res://resources/inventory/consumable/consumable.gd
-res://resources/inventory/inventory_data/inventory_data.gd
-res://resources/inventory/item_data/item_data.gd
-res://resource scripts/inventory/item_data/item_data.gd
-res://resource scripts/inventory/inventory_data/inventory_data.gd
-res://resource scripts/inventory/consumable/consumable.gd
-res://resource scripts/inventory/slot_data/slot_data.gd
+res://scenes/inventory/chest.tscn

@@ -18,3 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 PlayerManager="*res://scenes/player/player_manager.gd"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://resource scripts/": "blue",
+"res://resources/": "gray",
+"res://scenes/": "green"
+}

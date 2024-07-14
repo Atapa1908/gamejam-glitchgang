@@ -6,10 +6,10 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7qwb"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1dh3b")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="."]
+[node name="CollisionShape" type="CollisionShape2D" parent="." groups=["player"]]
 shape = SubResource("CapsuleShape2D_l1u3j")
 metadata/_edit_group_ = true
 
