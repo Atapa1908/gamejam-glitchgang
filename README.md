@@ -1,2 +1,2 @@
 # gamejam-glitchgang
-Privat Repo for the GlitchGang Team's first Game
+Private Repo for the GlitchGang Team's first Game
