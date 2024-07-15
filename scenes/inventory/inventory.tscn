@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cflupa8oq6kte"]
+[gd_scene load_steps=3 format=3 uid="uid://cflupa8oq6kte"]
 
 [ext_resource type="Script" path="res://scenes/inventory/inventory.gd" id="1_wixiy"]
+[ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="2_r76f5"]
 
 [node name="Inventory" type="PanelContainer"]
 custom_minimum_size = Vector2(10, 10)
 script = ExtResource("1_wixiy")
+packed_slot = ExtResource("2_r76f5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

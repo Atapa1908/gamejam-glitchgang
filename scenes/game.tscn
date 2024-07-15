@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dsim0o8p4bdy"]
+[gd_scene load_steps=7 format=3 uid="uid://dsim0o8p4bdy"]
 
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_mb528"]
 [ext_resource type="Script" path="res://scenes/InventoryInterface.gd" id="1_yy1ok"]
 [ext_resource type="PackedScene" uid="uid://cpksbbakgod7g" path="res://scenes/player/player.tscn" id="2_sqgik"]
+[ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="3_bilbk"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="4_tig2w"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="5_gb53o"]
 
@@ -13,6 +14,7 @@ script = ExtResource("1_mb528")
 format = 2
 
 [node name="Player" parent="." instance=ExtResource("2_sqgik")]
+inventory_data = ExtResource("3_bilbk")
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -40,5 +42,4 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
-[connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]

@@ -8,14 +8,21 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 
 @export_category("Statistics")
+@export var MAX_HEALTH: float = 10.0
 
 @export_category("Movement")
 
+@export_category("Inventory")
+@export var inventory_data: InventoryData
+
+var health: float = MAX_HEALTH
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 	
 	velocity = direction * 200.0
 
-func heal(_heal_value: float) -> void:
-	print("Healing.")
+func heal(heal_value: float) -> void:
+	health += heal_value
+	clamp(health, 0.0, MAX_HEALTH)
+	print("Healed player by %s to %s" % [heal_value, health])
