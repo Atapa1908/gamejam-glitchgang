@@ -1,39 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721056475
-icon.svg::CompressedTexture2D::3621610282134603035::1720883160::1720898764::1::::<><>::
-README.md::TextFile::-1::1720898783::0::1::::<><>::
-::res://assets/::1721055766
-Furniture.png::CompressedTexture2D::7678842115562159338::1720311574::1721055766::1::::<><>::
-Items.png::CompressedTexture2D::2190932169528387343::1720022769::1721055766::1::::<><>::
-::res://resource scripts/::1720898783
-::res://resource scripts/inventory/::1720898783
-::res://resource scripts/inventory/consumable/::1720902183
-consumable.gd::GDScript::-1::1720902183::0::1::::Consumable<>ItemData<>::
-::res://resource scripts/inventory/inventory_data/::1720902183
-inventory_data.gd::GDScript::-1::1720902183::0::1::::InventoryData<>Resource<>::
-::res://resource scripts/inventory/item_data/::1720902183
-item_data.gd::GDScript::-1::1720902183::0::1::::ItemData<>Resource<>::
-::res://resource scripts/inventory/slot_data/::1720902183
-slot_data.gd::GDScript::-1::1720902183::0::1::::SlotData<>Resource<>::
-::res://resources/::1721056468
-::res://resources/inventory_data/::1721056475
-::res://resources/inventory_data/consumable/::1721055979
-Apple.tres::Resource/Consumable::8515747533244616795::1721055979::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://6hklkv0abxy2::::res://assets/Items.png
-::res://resources/inventory_data/inventory/::1721055970
-player_test.tres::Resource/InventoryData::389891262775289885::1721055970::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd
-::res://resources/inventory_data/item_data/::1720898096
-::res://scenes/::1721056020
-game.gd::GDScript::-1::1720996338::0::1::::<>Node2D<>::
-game.tscn::PackedScene::248233832187734138::1721056020::0::1::::<><>::res://scenes/game.gd<>res://scenes/InventoryInterface.gd<>uid://cpksbbakgod7g::::res://scenes/player/player.tscn<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-InventoryInterface.gd::GDScript::-1::1720996338::0::1::::<>Control<>::
-::res://scenes/inventory/::1721056020
-inventory.gd::GDScript::-1::1720918671::0::1::::<>PanelContainer<>::
-inventory.tscn::PackedScene::5147734919272177962::1721056020::0::1::::<><>::res://scenes/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-pickup.gd::GDScript::-1::1720918568::0::1::::<>StaticBody2D<>::
-pickup.tscn::PackedScene::5030825636989202242::1721056020::0::1::::<><>::res://scenes/inventory/pickup.gd
-slot.gd::GDScript::-1::1720917644::0::1::::<>PanelContainer<>::
-slot.tscn::PackedScene::2527484060674388920::1721056020::0::1::::<><>::res://scenes/inventory/slot.gd
-::res://scenes/player/::1721056020
-player.gd::GDScript::-1::1721056020::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::5847412544147264098::1721056020::0::1::::<><>::res://scenes/player/player.gd
-player_manager.gd::GDScript::-1::1720902183::0::1::::<>Node<>::
+::res://::1720879723
+game.tscn::PackedScene::248233832187734138::1720879347::0::1::::<><>::
+icon.svg::CompressedTexture2D::3621610282134603035::1720565794::1720565837::1::::<><>::
+README.md::TextFile::-1::1720565794::0::1::::<><>::
+::res://assets/::1720879723
+::res://assets/fonts/::1720879585
+::res://assets/music/::1720879590
+::res://assets/sounds/::1720879597
+::res://assets/sprites/::1720882018
+::res://scenes/::1720878823
+player.tscn::PackedScene::5847412544147264098::1720882109::0::1::::<><>::
+::res://scripts/::1720878832

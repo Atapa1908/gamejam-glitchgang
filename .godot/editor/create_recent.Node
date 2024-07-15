@@ -1,15 +1,2 @@
-MeshInstance2D
 AnimatedSprite2D
-CollisionShape2D
-RayCast2D
-VBoxContainer
-Area2D
-StaticBody2D
-CanvasLayer
-Node2D
-Control
-Label
-TextureRect
-MarginContainer
-PanelContainer
-GridContainer
+CharacterBody2D

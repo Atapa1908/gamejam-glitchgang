@@ -1,2 +1,0 @@
-InventoryData
-Consumable
