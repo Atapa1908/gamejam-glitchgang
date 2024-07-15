@@ -13,14 +13,16 @@ extends CharacterBody2D
 @export_category("Movement")
 
 @export_category("Inventory")
-@export var inventory_data: InventoryData
+@export var inventory: InventoryData
 
 var health: float = MAX_HEALTH
 
-func _physics_process(delta: float) -> void:
-	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
+func _physics_process(_delta: float) -> void:
+	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down").normalized()
 	
 	velocity = direction * 200.0
+	
+	move_and_slide()
 
 func heal(heal_value: float) -> void:
 	health += heal_value

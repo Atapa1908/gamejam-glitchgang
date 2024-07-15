@@ -1,8 +1,13 @@
 res://scenes/game.tscn
-res://resources/inventory/consumable/Apple.tres
+res://resources/inventory_data/consumable/Apple.tres
+res://resources/inventory_data/inventory/player_test.tres
 res://scenes/player/player.tscn
 res://scenes/inventory/inventory.tscn
 res://scenes/inventory/slot.tscn
 res://scenes/inventory/pickup.tscn
-res://scenes/player/player.gd
-res://resources/inventory_data/inventory/player_test.tres
+res://scenes/inventory/pickup.gd
+res://scenes/game.gd
+res://scenes/InventoryInterface.gd
+res://resource scripts/inventory/inventory_data/inventory_data.gd
+res://scenes/inventory/slot.gd
+res://scenes/player/player_manager.gd

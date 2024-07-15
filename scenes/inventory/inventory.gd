@@ -1,7 +1,12 @@
 extends PanelContainer
 
 @onready var item_grid: GridContainer = %ItemGrid
+
 @export var packed_slot: PackedScene
+
+func set_inventory_data(inv_data: InventoryData) -> void:
+	inv_data.inv_updated.connect(populate_grid)
+	populate_grid(inv_data)
 
 func clear_inventory_data(inv_data: InventoryData) -> void:
 	inv_data.inv_updated.disconnect(populate_grid)

@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpksbbakgod7g"]
+[gd_scene load_steps=5 format=3 uid="uid://cpksbbakgod7g"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1dh3b"]
+[ext_resource type="Texture2D" uid="uid://brulnln6sr2sd" path="res://icon.svg" id="2_4a5fc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l1u3j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s7qwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4a5fc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_1dh3b")
@@ -14,6 +24,7 @@ shape = SubResource("CapsuleShape2D_l1u3j")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_s7qwb")
 metadata/_edit_group_ = true
 

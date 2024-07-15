@@ -7,7 +7,7 @@ signal clicked(index: int, button: int)
 
 func set_slot_data(slot_data: SlotData) -> void:
 	var item_data: ItemData = slot_data.item_data
-	item_texture.texture = item_data.icon
+	item_texture.texture = item_data.texture
 	tooltip_text = "%s\n%s" % [item_data.name, item_data.description]
 	 
 	quantity_label.text = "x%s" % slot_data.quantity
@@ -18,5 +18,4 @@ func _on_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton \
 		and event.button_index in [MOUSE_BUTTON_LEFT, MOUSE_BUTTON_RIGHT] \
 		 and event.is_pressed():
-		
 		clicked.emit(get_index(), event.button_index)

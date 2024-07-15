@@ -7,7 +7,6 @@ signal force_close
 @onready var grabbed_slot: PanelContainer = %GrabbedSlot
 
 var grabbed_slot_data: SlotData
-var extra_inv_owner
 
 func _physics_process(_delta: float) -> void:
 	if grabbed_slot_data:
@@ -19,7 +18,6 @@ func set_player_inventory_data(inv_data: InventoryData) -> void:
 	player_inventory.set_inventory_data(inv_data)
 
 func on_inv_interact(inv_data: InventoryData, index: int, button: int) -> void:
-	
 	match [grabbed_slot_data, button]:
 		[null, MOUSE_BUTTON_LEFT]:
 			grabbed_slot_data = inv_data.grab_slot_data(index)

@@ -70,10 +70,10 @@ func use_slot(index: int) -> void:
 	if not slot_data:
 		return
 	
-	#if slot_data.item_data is Consumable:
-		#slot_data.quantity -= 1
-		#if slot_data.quantity < 1:
-			#data[index] = null
+	if slot_data.item_data is Consumable:
+		slot_data.quantity -= 1
+		if slot_data.quantity < 1:
+			data[index] = null
 	
 	PlayerManager.use_slot_data(slot_data)
 	
