@@ -1,38 +1,34 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=9 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
-[ext_resource type="Script" path="res://scripts/player/player.gd" id="2_pqiyi"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
-[ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="5_idddr"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_df4oq"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_kstxu"]
+[sub_resource type="BoxMesh" id="BoxMesh_ia8re"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l5um2")
 packed_pickup = ExtResource("2_8wd3k")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("1_igeqn")]
 position = Vector2(1, -70)
-script = ExtResource("2_pqiyi")
-inventory_data = ExtResource("5_idddr")
+abilities = null
+DEFAULT_DASH_TIME = null
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="TempFloor" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TempFloor"]
 shape = SubResource("WorldBoundaryShape2D_df4oq")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
-position = Vector2(-0.5, 12.25)
-scale = Vector2(199, 25.5)
-mesh = SubResource("BoxMesh_kstxu")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="TempFloor"]
+position = Vector2(-7.99996, 88)
+scale = Vector2(860, 176)
+mesh = SubResource("BoxMesh_ia8re")
 
 [node name="Items" type="Node2D" parent="."]
 
