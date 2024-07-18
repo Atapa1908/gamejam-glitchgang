@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Consumable" load_steps=6 format=3 uid="uid://dtldeacldsf6j"]
+
+[ext_resource type="Script" path="res://resource scripts/inventory/consumable/consumable.gd" id="1_djnnc"]
+[ext_resource type="Texture2D" uid="uid://bjvl5yxcrclh6" path="res://assets/Sprites/Items.png" id="2_h4p2u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v28nd"]
+atlas = ExtResource("2_h4p2u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26tnc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v28nd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m033m"]
+atlas = ExtResource("2_h4p2u")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_djnnc")
+potency = 10.0
+name = "Apple"
+description = "A tasty apple."
+stackable = true
+texture = SubResource("AtlasTexture_m033m")
+sprite_frames = SubResource("SpriteFrames_26tnc")
