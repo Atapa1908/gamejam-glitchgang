@@ -1,19 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=11 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
-[ext_resource type="Script" path="res://scripts/player.gd" id="2_pqiyi"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_l5um2"]
+[ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="2_pqiyi"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
+[ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
+[ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="5_idddr"]
+[ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_df4oq"]
 
-[node name="Game" type="Node2D"]
+[sub_resource type="BoxMesh" id="BoxMesh_kstxu"]
 
-[node name="Player" parent="." instance=ExtResource("1_igeqn")]
-position = Vector2(-5, -104)
-script = ExtResource("2_pqiyi")
+[node name="Game" type="Node2D"]
+script = ExtResource("1_l5um2")
+packed_pickup = ExtResource("2_8wd3k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_igeqn")]
+position = Vector2(1, -70)
+script = ExtResource("2_pqiyi")
+inventory_data = ExtResource("5_idddr")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_df4oq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D"]
+position = Vector2(-0.5, 12.25)
+scale = Vector2(199, 25.5)
+mesh = SubResource("BoxMesh_kstxu")
+
+[node name="Items" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_8j2ra")
+
+[node name="PlayerInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("5_5d1qk")]
+unique_name_in_owner = true
+layout_mode = 0
+
+[node name="GrabbedSlot" parent="CanvasLayer/InventoryInterface" instance=ExtResource("6_jrkui")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+
+[connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]

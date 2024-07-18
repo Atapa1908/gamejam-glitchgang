@@ -1,25 +1,59 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721255437
-icon.svg::CompressedTexture2D::3621610282134603035::1720569881::1721255441::1::::<><>::
-README.md::TextFile::-1::1720569881::0::1::::<><>::
-::res://assets/::1721255377
-sprite_sheet_red.jpg::CompressedTexture2D::3838473424420328264::1721255377::1721255377::1::::<><>::
-::res://assets/audio/::1721255377
-collect_thing.wav::AudioStreamWAV::1933803232285525579::1721255377::1721255441::1::::<><>::
-eat_fruit_01.wav::AudioStreamWAV::3418438396155712062::1721255377::1721255441::1::::<><>::
-eat_fruit_02.wav::AudioStreamWAV::1343027995792390274::1721255377::1721255441::1::::<><>::
-jump_01.wav::AudioStreamWAV::780788828019704543::1721255377::1721255441::1::::<><>::
-jump_02.wav::AudioStreamWAV::1958986132044731981::1721255377::1721255441::1::::<><>::
-landing_01.wav::AudioStreamWAV::2076305358940411367::1721255377::1721255441::1::::<><>::
-running_dirt_01.wav::AudioStreamWAV::7273859980922860733::1721255377::1721255441::1::::<><>::
-running_grass_01.wav::AudioStreamWAV::857343197918402305::1721255377::1721255441::1::::<><>::
-test.txt::TextFile::-1::1721255377::0::1::::<><>::
-walking_dirt_01.wav::AudioStreamWAV::6996645998076461860::1721255377::1721255441::1::::<><>::
-walking_grass_01.wav::AudioStreamWAV::8956121426190281089::1721255377::1721255441::1::::<><>::
-::res://assets/BGM/::1721255377
-Forest_01_wav.wav::AudioStreamWAV::8762890826119584929::1721255377::1721255443::1::::<><>::
-::res://scenes/::1721255377
-game.tscn::PackedScene::3865567050859902608::1721255377::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/player.gd
-player.tscn::PackedScene::6149007384996584392::1721255377::0::1::::<><>::uid://brulnln6sr2sd::::res://icon.svg
-::res://scripts/::1721255377
-player.gd::GDScript::-1::1721255377::0::1::::<>CharacterBody2D<>::
+::res://::1721305894
+icon.svg::CompressedTexture2D::3621610282134603035::1721299451::1721299451::1::::<><>::
+README.md::TextFile::-1::1721305874::0::1::::<><>::
+::res://assets/::1721305882
+::res://assets/audio/::1721305874
+collect_thing.wav::AudioStreamWAV::1933803232285525579::1721305874::1721305874::1::::<><>::
+eat_fruit_01.wav::AudioStreamWAV::3418438396155712062::1721305874::1721305874::1::::<><>::
+eat_fruit_02.wav::AudioStreamWAV::1343027995792390274::1721305874::1721305874::1::::<><>::
+jump_01.wav::AudioStreamWAV::780788828019704543::1721305874::1721305874::1::::<><>::
+jump_02.wav::AudioStreamWAV::1958986132044731981::1721305874::1721305874::1::::<><>::
+landing_01.wav::AudioStreamWAV::2076305358940411367::1721305874::1721305874::1::::<><>::
+running_dirt_01.wav::AudioStreamWAV::7273859980922860733::1721305874::1721305874::1::::<><>::
+running_grass_01.wav::AudioStreamWAV::857343197918402305::1721305874::1721305874::1::::<><>::
+test.txt::TextFile::-1::1721305874::0::1::::<><>::
+walking_dirt_01.wav::AudioStreamWAV::6996645998076461860::1721305874::1721305874::1::::<><>::
+walking_grass_01.wav::AudioStreamWAV::8956121426190281089::1721305874::1721305874::1::::<><>::
+::res://assets/BGM/::1721305874
+Forest_01_wav.wav::AudioStreamWAV::8762890826119584929::1721305874::1721305874::1::::<><>::
+::res://assets/Sprites/::1721305882
+Furniture.png::CompressedTexture2D::1882107164862264570::1721305882::1721305882::1::::<><>::
+Items.png::CompressedTexture2D::3062194966212810969::1721305882::1721305882::1::::<><>::
+Little_Red_Sprite_Sheet_1.png::CompressedTexture2D::1064754318553261697::1721305882::1721305882::1::::<><>::
+sprite_sheet_red.jpg::CompressedTexture2D::3838473424420328264::1721305882::1721305882::1::::<><>::
+::res://assets/TileMaps/::1721304355
+::res://resource scripts/::1721305882
+::res://resource scripts/inventory/::1721305882
+::res://resource scripts/inventory/consumable/::1721305882
+consumable.gd::GDScript::-1::1721305882::0::1::::Consumable<>ItemData<>::
+::res://resource scripts/inventory/inventory_data/::1721305882
+inventory_data.gd::GDScript::-1::1721305882::0::1::::InventoryData<>Resource<>::
+::res://resource scripts/inventory/item_data/::1721305882
+item_data.gd::GDScript::-1::1721305882::0::1::::ItemData<>Resource<>::
+::res://resource scripts/inventory/slot_data/::1721305882
+slot_data.gd::GDScript::-1::1721305882::0::1::::SlotData<>Resource<>::
+::res://resources/::1721074124
+::res://resources/inventory_data/::1721305882
+::res://resources/inventory_data/consumable/::1721305882
+Apple.tres::Resource/Consumable::8515747533244616795::1721305882::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://6hklkv0abxy2::::res://assets/Items.png
+::res://resources/inventory_data/inventory/::1721305882
+player_test.tres::Resource/InventoryData::389891262775289885::1721305882::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
+::res://resources/inventory_data/item/::1720898096
+::res://scenes/::1721305882
+game.gd::GDScript::-1::1721305882::0::1::::<>Node2D<>::
+game.tscn::PackedScene::3865567050859902608::1721305882::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scenes/game.gd<>res://scripts/player/player.gd<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+player.tscn::PackedScene::6149007384996584392::1721305874::0::1::::<><>::uid://brulnln6sr2sd::::res://icon.svg
+::res://scenes/inventory/::1721305882
+inventory.tscn::PackedScene::5147734919272177962::1721305882::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+pickup.tscn::PackedScene::5030825636989202242::1721305882::0::1::::<><>::res://scripts/inventory/pickup.gd
+slot.tscn::PackedScene::2527484060674388920::1721305882::0::1::::<><>::res://scripts/inventory/slot.gd
+::res://scripts/::1721305882
+::res://scripts/inventory/::1721305882
+inventory.gd::GDScript::-1::1721305882::0::1::::<>PanelContainer<>::
+InventoryInterface.gd::GDScript::-1::1721305882::0::1::::<>Control<>::
+pickup.gd::GDScript::-1::1721305882::0::1::::<>StaticBody2D<>::
+slot.gd::GDScript::-1::1721305882::0::1::::<>PanelContainer<>::
+::res://scripts/player/::1721305882
+player.gd::GDScript::-1::1721305882::0::1::::<>CharacterBody2D<>::
+player_manager.gd::GDScript::-1::1721305882::0::1::::<>Node<>::

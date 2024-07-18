@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxndjssa153i"
-path="res://.godot/imported/sprite_sheet_red.jpg-f2df4e9ab70af467474b773f8b996461.ctex"
+uid="uid://12ybaye2jwuc"
+path="res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprite_sheet_red.jpg"
-dest_files=["res://.godot/imported/sprite_sheet_red.jpg-f2df4e9ab70af467474b773f8b996461.ctex"]
+source_file="res://assets/Sprites/Furniture.png"
+dest_files=["res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"]
 
 [params]
 
