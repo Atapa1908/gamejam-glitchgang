@@ -15,15 +15,11 @@ run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
+[display]
 
-PlayerManager="*res://scenes/player/player_manager.gd"
+window/size/viewport_width=940
+window/size/viewport_height=600
 
-[file_customization]
+[rendering]
 
-folder_colors={
-"res://assets/": "red",
-"res://resource scripts/": "blue",
-"res://resources/": "gray",
-"res://scenes/": "green"
-}
+textures/canvas_textures/default_texture_filter=0
