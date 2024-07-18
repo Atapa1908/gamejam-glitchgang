@@ -17,8 +17,8 @@ packed_pickup = ExtResource("2_8wd3k")
 
 [node name="Player" parent="." instance=ExtResource("1_igeqn")]
 position = Vector2(1, -70)
-abilities = null
-DEFAULT_DASH_TIME = null
+abilities = Array[int]([])
+DEFAULT_DASH_TIME = 0.3
 
 [node name="TempFloor" type="StaticBody2D" parent="."]
 

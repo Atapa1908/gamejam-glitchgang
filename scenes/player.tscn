@@ -24,9 +24,7 @@ radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dcxy8")
-abilities = null
 inventory_data = ExtResource("2_f8olv")
-DEFAULT_DASH_TIME = null
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)
@@ -36,3 +34,5 @@ sprite_frames = SubResource("SpriteFrames_0of37")
 shape = SubResource("CircleShape2D_7ji53")
 
 [node name="Camera" type="Camera2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
