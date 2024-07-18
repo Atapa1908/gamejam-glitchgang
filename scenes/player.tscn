@@ -34,5 +34,3 @@ sprite_frames = SubResource("SpriteFrames_0of37")
 shape = SubResource("CircleShape2D_7ji53")
 
 [node name="Camera" type="Camera2D" parent="."]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
