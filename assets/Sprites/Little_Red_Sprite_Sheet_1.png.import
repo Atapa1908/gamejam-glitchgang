@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pf1l3mkqkigf"
-path="res://.godot/imported/Little_Red_Sprite_Sheet_1.png-aac56b3f2a19d6d36ee48917b5ff4086.ctex"
+path="res://.godot/imported/Little_Red_Sprite_Sheet_1.png-04a48f767fa2660673a944884dc3c9f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Little_Red_Sprite_Sheet_1.png"
-dest_files=["res://.godot/imported/Little_Red_Sprite_Sheet_1.png-aac56b3f2a19d6d36ee48917b5ff4086.ctex"]
+source_file="res://assets/sprites/Little_Red_Sprite_Sheet_1.png"
+dest_files=["res://.godot/imported/Little_Red_Sprite_Sheet_1.png-04a48f767fa2660673a944884dc3c9f2.ctex"]
 
 [params]
 
