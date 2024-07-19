@@ -7,10 +7,10 @@ extends CharacterBody2D
 # Stores all the abilities that the player has as a list of enumerates
 # NOTE: 
 # You don't need to implement this straight away
-# figure out how the mechanic should work first
+# Figure out how the mechanic should work first
 @export var abilities: Array[PlayerManager.abilities]
 @export var inventory_data: InventoryData
-@export_range(0.1, 1, 0.1, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
+@export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
 
 const WALK_SPEED = 300.0
 const DASH_SPEED = 500.0
@@ -38,6 +38,8 @@ func _physics_process(delta):
 	
 	# Actually makes the user dash
 	if dashing and not is_zero_approx(dash_timer):
+		# * 100 turns 0.02 into 2
+		# The clamp turns 2 into 1
 		var dash_direction: int = clamp(last_x_direction * 100.0, -1, 1)
 		velocity.x = dash_direction * DASH_SPEED
 		print("%s : %s" % [last_x_direction, dash_direction])

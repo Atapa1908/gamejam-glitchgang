@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721343288
+::res://::1721343646
 icon.svg::CompressedTexture2D::3621610282134603035::1721299451::1721299451::1::::<><>::
 README.md::TextFile::-1::1721305874::0::1::::<><>::
 ::res://assets/::1721342042
@@ -44,14 +44,14 @@ item_data.gd::GDScript::-1::1721309908::0::1::::ItemData<>Resource<>::
 slot_data.gd::GDScript::-1::1721309908::0::1::::SlotData<>Resource<>::
 ::res://resources/::1721074124
 ::res://resources/inventory_data/::1721335904
-::res://resources/inventory_data/consumable/::1721342967
-Apple.tres::Resource/Consumable::8515747533244616795::1721342967::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://bjvl5yxcrclh6::::res://assets/Sprites/Items.png
-::res://resources/inventory_data/inventory/::1721342967
-player_test.tres::Resource/InventoryData::389891262775289885::1721342967::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
-::res://scenes/::1721342967
+::res://resources/inventory_data/consumable/::1721343296
+Apple.tres::Resource/Consumable::8515747533244616795::1721343296::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://bjvl5yxcrclh6::::res://assets/Sprites/Items.png
+::res://resources/inventory_data/inventory/::1721343296
+player_test.tres::Resource/InventoryData::389891262775289885::1721343296::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
+::res://scenes/::1721343549
 game.gd::GDScript::-1::1721340147::0::1::::<>Node2D<>::
-game.tscn::PackedScene::3865567050859902608::1721342967::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scenes/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-player.tscn::PackedScene::6149007384996584392::1721342967::0::1::::<><>::res://scripts/player/player.gd<>uid://brulnln6sr2sd::::res://icon.svg<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres
+game.tscn::PackedScene::3865567050859902608::1721343549::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scenes/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+player.tscn::PackedScene::6149007384996584392::1721343549::0::1::::<><>::res://scripts/player/player.gd<>uid://brulnln6sr2sd::::res://icon.svg<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres
 ::res://scenes/inventory/::1721309908
 inventory.tscn::PackedScene::5147734919272177962::1721309908::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
 pickup.tscn::PackedScene::5030825636989202242::1721309908::0::1::::<><>::res://scripts/inventory/pickup.gd

@@ -9,4 +9,4 @@ extends Resource
 @export var sprite_frames: SpriteFrames
 
 func use(target) -> void:
-	pass
+	print("Yay")
