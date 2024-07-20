@@ -1,6 +1,6 @@
-AnimationPlayer
 CollisionShape2D
 Area2D
+AnimationPlayer
 Node2D
 AudioStreamPlayer
 MeshInstance2D

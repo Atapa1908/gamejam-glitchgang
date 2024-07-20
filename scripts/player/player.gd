@@ -3,8 +3,8 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var hit_boxes: Node2D = $HitBoxes
-@onready var hurt_boxes: Node2D = $HurtBoxes
+@onready var hit_box: Area2D = $HitBox
+@onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
 # Stores all the abilities that the player has as a list of enumerates
 # NOTE: 
@@ -68,8 +68,11 @@ func _physics_process(delta):
 	
 	if direction > 0:
 		animated_sprite.flip_h = false
+		# NEEDS TO BE SWITCHED IF HITBOX IS MOVED IN 2D
+		hit_box.position.x = 8
 	elif direction < 0:
 		animated_sprite.flip_h = true
+		hit_box.position.x = -8
 	
 	if is_on_floor():
 		if direction == 0 and is_attacking == false:
@@ -88,11 +91,13 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Attack"):
 		animated_sprite.play("attack_basket")
 		is_attacking = true
+		hit_box_area.disabled = false
 	
 	move_and_slide()
 
 func _on_animated_sprite_animation_finished():
 	if animated_sprite.animation == "attack_basket":
+		hit_box_area.disabled = true
 		is_attacking = false
 
 # NOTE POTENTIALLY LEGACY
