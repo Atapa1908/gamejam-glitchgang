@@ -26,9 +26,10 @@ var dash_timer: float
 var last_x_direction: int = 1
 
 ## Combat Variables
-var max_hp = 10
-var current_hp = 10
-var player_alive = true
+var max_hp: int = 10
+var current_hp: int = 10
+var player_alive: bool = true
+var is_attacking: bool = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -65,22 +66,34 @@ func _physics_process(delta):
 	if direction != 0:
 		last_x_direction = direction
 	
-	animated_sprite.flip_h = clamp(direction * 100, -1, 1) >= 0
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
 	
 	if is_on_floor():
-		if direction == 0:
+		if direction == 0 and is_attacking == false:
 			animated_sprite.play("idle")
-		else:
+		elif direction !=0 and is_attacking == false:
 			animated_sprite.play("walking")
 	else:
-		animated_sprite.play("jumping")
+		if is_attacking == false:
+			animated_sprite.play("jumping")
 	
 	if direction:
 		velocity.x = direction * WALK_SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 	
+	if Input.is_action_just_pressed("Attack"):
+		animated_sprite.play("attack_basket")
+		is_attacking = true
+	
 	move_and_slide()
+
+func _on_animated_sprite_animation_finished():
+	if animated_sprite.animation == "attack_basket":
+		is_attacking = false
 
 # NOTE POTENTIALLY LEGACY
 # Esta needs to inspect
@@ -96,4 +109,13 @@ func _physics_process(delta):
 		#body.take_damage()
 	#else:
 		#pass
+
+
+
+
+
+
+
+
+
 

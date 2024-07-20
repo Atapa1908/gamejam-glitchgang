@@ -1,8 +1,29 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctuviu0ywg71e"]
+[gd_scene load_steps=30 format=3 uid="uid://ctuviu0ywg71e"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
-[ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/Sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
+[ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
+[ext_resource type="Texture2D" uid="uid://b2d7cruu0ppx0" path="res://assets/sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bb3r"]
+atlas = ExtResource("3_m6nn3")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qour"]
+atlas = ExtResource("3_m6nn3")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nsln"]
+atlas = ExtResource("3_m6nn3")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn4lc"]
+atlas = ExtResource("3_m6nn3")
+region = Rect2(96, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wobqc"]
+atlas = ExtResource("3_m6nn3")
+region = Rect2(128, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j01q"]
 atlas = ExtResource("3_8nu85")
@@ -74,6 +95,26 @@ region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0of37"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bb3r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qour")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nsln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn4lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wobqc")
+}],
+"loop": false,
+"name": &"attack_basket",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1j01q")
@@ -150,16 +191,18 @@ animations = [{
 radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6auiu"]
+size = Vector2(10, 10)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_dcxy8")
 inventory_data = ExtResource("2_f8olv")
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0of37")
-animation = &"walking"
+animation = &"attack_basket"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7ji53")
@@ -169,9 +212,12 @@ shape = SubResource("CircleShape2D_7ji53")
 [node name="HitBoxes" type="Node2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="HitBoxes"]
-position = Vector2(17, 0)
+position = Vector2(8, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/Area2D"]
 shape = SubResource("RectangleShape2D_6auiu")
 
 [node name="HurtBoxes" type="Node2D" parent="."]
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
+[connection signal="animation_looped" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_looped"]

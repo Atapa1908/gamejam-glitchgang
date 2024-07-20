@@ -1,4 +1,5 @@
 res://scenes/player.tscn
 res://resources/inventory_data/consumable/Apple.tres
 res://resources/inventory_data/inventory/player_test.tres
+res://scripts/player/player.gd
 res://scenes/game.tscn
