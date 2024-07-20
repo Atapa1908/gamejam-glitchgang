@@ -1,12 +1,7 @@
-res://scenes/player.tscn
+res://scenes/double jump test.tscn
 res://resources/inventory_data/consumable/Apple.tres
 res://resources/inventory_data/inventory/player_test.tres
+res://scenes/player.tscn
 res://scenes/game.tscn
-res://scenes/menus/main_menu.tscn
-res://scenes/inventory/slot.tscn
-res://scenes/Door.gd
+res://resource scripts/inventory/inventory_data/inventory_data.gd
 res://scripts/player/player.gd
-res://scripts/game.gd
-res://scripts/scene_manager.gd
-res://resource scripts/inventory/consumable/consumable.gd
-res://scenes/Backdrop.tscn
