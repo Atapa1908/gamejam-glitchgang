@@ -1,20 +1,14 @@
-<<<<<<< HEAD
+Node2D
 CollisionShape2D
 StaticBody2D
 CharacterBody2D
-=======
 AnimationPlayer
 CollisionShape2D
 Area2D
-Node2D
->>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
 AudioStreamPlayer
 MeshInstance2D
 Camera2D
 Control
 CanvasLayer
-<<<<<<< HEAD
-=======
 StaticBody2D
->>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
 AnimatedSprite2D

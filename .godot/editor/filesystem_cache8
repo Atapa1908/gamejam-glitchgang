@@ -1,82 +1,82 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721511796
-icon.svg::CompressedTexture2D::3621610282134603035::1720569881::1721255441::1::::<><>::
-README.md::TextFile::-1::1720569881::0::1::::<><>::
-::res://assets/::1721505024
-::res://assets/audio/::1721505023
-collect_thing.wav::AudioStreamWAV::1933803232285525579::1721255377::1721255441::1::::<><>::
-eat_fruit_01.wav::AudioStreamWAV::3418438396155712062::1721255377::1721255441::1::::<><>::
-eat_fruit_02.wav::AudioStreamWAV::1343027995792390274::1721255377::1721255441::1::::<><>::
-jump_01.wav::AudioStreamWAV::780788828019704543::1721255377::1721255441::1::::<><>::
-jump_02.wav::AudioStreamWAV::1958986132044731981::1721255377::1721255441::1::::<><>::
-landing_01.wav::AudioStreamWAV::2076305358940411367::1721255377::1721255441::1::::<><>::
-running_dirt_01.wav::AudioStreamWAV::7273859980922860733::1721255377::1721255441::1::::<><>::
-running_grass_01.wav::AudioStreamWAV::857343197918402305::1721255377::1721255441::1::::<><>::
-walking_dirt_01.wav::AudioStreamWAV::6996645998076461860::1721255377::1721255441::1::::<><>::
-walking_grass_01.wav::AudioStreamWAV::8956121426190281089::1721255377::1721255441::1::::<><>::
-::res://assets/BGM/::1721505024
-Forest_01_wav.wav::AudioStreamWAV::8762890826119584929::1721255377::1721505024::1::::<><>::
-::res://assets/Sprites/::1721505024
-Attack_individual-Sheet.png::CompressedTexture2D::854482255161956227::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-Sheet.png::CompressedTexture2D::8343065026979169276::1721505024::1721505024::1::::<><>::
-basket-sheet.png::CompressedTexture2D::1615979628290006380::1721505024::1721505024::1::::<><>::
-Furniture.png::CompressedTexture2D::7513209287912453602::1721335337::1721505024::1::::<><>::
-Items.png::CompressedTexture2D::6529314706084031611::1721335337::1721505024::1::::<><>::
-Little_Red_Sheet_All.png::CompressedTexture2D::4289660035274256747::1721505024::1721505024::1::::<><>::
-Little_Red_Sprite_Sheet_1.png::CompressedTexture2D::852763472861524269::1721335337::1721505024::1::::<><>::
-::res://assets/Temp/::1721505024
-Attack_individual-1.png::CompressedTexture2D::2351547814588286144::1721505024::1721505024::1::::<><>::
-Attack_individual-2.png::CompressedTexture2D::5564872391364304062::1721505024::1721505024::1::::<><>::
-Attack_individual-3.png::CompressedTexture2D::6081089644281371698::1721505024::1721505024::1::::<><>::
-Attack_individual-4.png::CompressedTexture2D::4785539881505926204::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-1.png::CompressedTexture2D::5244011095449391481::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-2.png::CompressedTexture2D::2516227028143205038::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-3.png::CompressedTexture2D::2981267317884909694::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-4.png::CompressedTexture2D::4026425664586832007::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-5.png::CompressedTexture2D::3875190005422435032::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-6.png::CompressedTexture2D::6678639221988648687::1721505024::1721505024::1::::<><>::
-Attack_w_6_sprites_W_Basket-7.png::CompressedTexture2D::5431699086112535186::1721505024::1721505024::1::::<><>::
-Basket_#I (1).png::CompressedTexture2D::2706114232298919394::1721505024::1721505024::1::::<><>::
-Basket_#I.png::CompressedTexture2D::7819912070197942733::1721505024::1721505024::1::::<><>::
-Basket_profile (1).png::CompressedTexture2D::8753057342220191621::1721505024::1721505024::1::::<><>::
-Basket_profile.png::CompressedTexture2D::7995177863132383841::1721505024::1721505024::1::::<><>::
-Grass_#2.png::CompressedTexture2D::3903031203449460494::1721505024::1721505024::1::::<><>::
-Grass_#I.png::CompressedTexture2D::3139275275841874584::1721505024::1721505024::1::::<><>::
-Ground_#1.png::CompressedTexture2D::4613660178300168069::1721505024::1721505024::1::::<><>::
-sideways_grass_#2.png::CompressedTexture2D::1501948765451248708::1721505024::1721505024::1::::<><>::
-sideways_grass_#I.png::CompressedTexture2D::6042002441342710210::1721505024::1721505024::1::::<><>::
-Test_tile_set.png::CompressedTexture2D::977593057223829980::1721505024::1721505024::1::::<><>::
-::res://resource scripts/::1721335337
-::res://resource scripts/inventory/::1721335337
-::res://resource scripts/inventory/consumable/::1721335337
-consumable.gd::GDScript::-1::1721335337::0::1::::Consumable<>ItemData<>::
-::res://resource scripts/inventory/inventory_data/::1721335337
-inventory_data.gd::GDScript::-1::1721335337::0::1::::InventoryData<>Resource<>::
-::res://resource scripts/inventory/item_data/::1721505024
-item_data.gd::GDScript::-1::1721505024::0::1::::ItemData<>Resource<>::
-::res://resource scripts/inventory/slot_data/::1721335337
-slot_data.gd::GDScript::-1::1721335337::0::1::::SlotData<>Resource<>::
-::res://resources/::1721335337
-::res://resources/inventory_data/::1721335337
-::res://resources/inventory_data/consumable/::1721505024
-Apple.tres::Resource/Consumable::8515747533244616795::1721505024::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/Sprites/Items.png
-::res://resources/inventory_data/inventory/::1721435418
-player_test.tres::Resource/InventoryData::389891262775289885::1721435418::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
-::res://scenes/::1721505024
-double jump test.tscn::PackedScene::3136832723658996228::1721505019::0::1::::<><>::uid://cgoohn8gksabd::::res://assets/Sprites/Attack_individual-1.png<>uid://40nkdbjaa74y::::res://assets/Grass_#I.png
-game.tscn::PackedScene::3865567050859902608::1721505024::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-player.tscn::PackedScene::6149007384996584392::1721505024::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/Sprites/Little_Red_Sprite_Sheet_1.png
-::res://scenes/inventory/::1721335337
-inventory.tscn::PackedScene::5147734919272177962::1721335337::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-pickup.tscn::PackedScene::5030825636989202242::1721335337::0::1::::<><>::res://scripts/inventory/pickup.gd
-slot.tscn::PackedScene::2527484060674388920::1721335337::0::1::::<><>::res://scripts/inventory/slot.gd
-::res://scripts/::1721505024
-game.gd::GDScript::-1::1721505024::0::1::::<>Node2D<>::
-::res://scripts/inventory/::1721505024
-inventory.gd::GDScript::-1::1721505024::0::1::::<>PanelContainer<>::
-InventoryInterface.gd::GDScript::-1::1721505024::0::1::::<>Control<>::
-pickup.gd::GDScript::-1::1721505024::0::1::::<>StaticBody2D<>::
-slot.gd::GDScript::-1::1721335337::0::1::::<>PanelContainer<>::
-::res://scripts/player/::1721505024
-player.gd::GDScript::-1::1721505024::0::1::::<>CharacterBody2D<>::
-player_manager.gd::GDScript::-1::1721335337::0::1::::<>Node<>::
+::res://::1721512085
+icon.svg::CompressedTexture2D::3621610282134603035::1721404111::1721404111::1::::<><>::
+README.md::TextFile::-1::1721511893::0::1::::<><>::
+::res://assets/::1721512073
+::res://assets/audio/::1721404931
+collect_thing.wav::AudioStreamWAV::1933803232285525579::1721404111::1721404111::1::::<><>::
+eat_fruit_01.wav::AudioStreamWAV::3418438396155712062::1721404111::1721404111::1::::<><>::
+eat_fruit_02.wav::AudioStreamWAV::1343027995792390274::1721404111::1721404111::1::::<><>::
+jump_01.wav::AudioStreamWAV::780788828019704543::1721404111::1721404111::1::::<><>::
+jump_02.wav::AudioStreamWAV::1958986132044731981::1721404111::1721404111::1::::<><>::
+landing_01.wav::AudioStreamWAV::2076305358940411367::1721404111::1721404111::1::::<><>::
+running_dirt_01.wav::AudioStreamWAV::7273859980922860733::1721404111::1721404111::1::::<><>::
+running_grass_01.wav::AudioStreamWAV::857343197918402305::1721404111::1721404111::1::::<><>::
+walking_dirt_01.wav::AudioStreamWAV::6996645998076461860::1721404111::1721404111::1::::<><>::
+walking_grass_01.wav::AudioStreamWAV::8956121426190281089::1721404111::1721404111::1::::<><>::
+::res://assets/bgm/::1721512069
+Forest_01_wav.wav::AudioStreamWAV::8762890826119584929::1721404111::1721512086::1::::<><>::
+::res://assets/sprites/::1721512069
+Attack_individual-Sheet.png::CompressedTexture2D::854482255161956227::1721488510::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-Sheet.png::CompressedTexture2D::8343065026979169276::1721488193::1721512086::1::::<><>::
+basket-sheet.png::CompressedTexture2D::1615979628290006380::1721488888::1721512086::1::::<><>::
+Furniture.png::CompressedTexture2D::7513209287912453602::1721404111::1721512086::1::::<><>::
+Items.png::CompressedTexture2D::6529314706084031611::1721404111::1721512086::1::::<><>::
+Little_Red_Sheet_All.png::CompressedTexture2D::4289660035274256747::1721490412::1721512086::1::::<><>::
+Little_Red_Sprite_Sheet_1.png::CompressedTexture2D::852763472861524269::1721404111::1721512086::1::::<><>::
+::res://assets/temp/::1721512069
+Attack_individual-1.png::CompressedTexture2D::2351547814588286144::1721404111::1721512086::1::::<><>::
+Attack_individual-2.png::CompressedTexture2D::5564872391364304062::1721404111::1721512086::1::::<><>::
+Attack_individual-3.png::CompressedTexture2D::6081089644281371698::1721404111::1721512086::1::::<><>::
+Attack_individual-4.png::CompressedTexture2D::4785539881505926204::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-1.png::CompressedTexture2D::5244011095449391481::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-2.png::CompressedTexture2D::2516227028143205038::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-3.png::CompressedTexture2D::2981267317884909694::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-4.png::CompressedTexture2D::4026425664586832007::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-5.png::CompressedTexture2D::3875190005422435032::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-6.png::CompressedTexture2D::6678639221988648687::1721404111::1721512086::1::::<><>::
+Attack_w_6_sprites_W_Basket-7.png::CompressedTexture2D::5431699086112535186::1721404111::1721512086::1::::<><>::
+Basket_#I (1).png::CompressedTexture2D::2706114232298919394::1721488385::1721512086::1::::<><>::
+Basket_#I.png::CompressedTexture2D::7819912070197942733::1721404111::1721512086::1::::<><>::
+Basket_profile (1).png::CompressedTexture2D::8753057342220191621::1721488398::1721512086::1::::<><>::
+Basket_profile.png::CompressedTexture2D::7995177863132383841::1721488371::1721512086::1::::<><>::
+Grass_#2.png::CompressedTexture2D::3903031203449460494::1721319118::1721512086::1::::<><>::
+Grass_#I.png::CompressedTexture2D::3139275275841874584::1721319092::1721512086::1::::<><>::
+Ground_#1.png::CompressedTexture2D::4613660178300168069::1721319160::1721512086::1::::<><>::
+sideways_grass_#2.png::CompressedTexture2D::1501948765451248708::1721319294::1721512086::1::::<><>::
+sideways_grass_#I.png::CompressedTexture2D::6042002441342710210::1721319228::1721512086::1::::<><>::
+Test_tile_set.png::CompressedTexture2D::977593057223829980::1721318942::1721512086::1::::<><>::
+::res://resource scripts/::1721404111
+::res://resource scripts/inventory/::1721404111
+::res://resource scripts/inventory/consumable/::1721508687
+consumable.gd::GDScript::-1::1721508687::0::1::::Consumable<>ItemData<>::
+::res://resource scripts/inventory/inventory_data/::1721404111
+inventory_data.gd::GDScript::-1::1721404111::0::1::::InventoryData<>Resource<>::
+::res://resource scripts/inventory/item_data/::1721511893
+item_data.gd::GDScript::-1::1721511893::0::1::::ItemData<>Resource<>::
+::res://resource scripts/inventory/slot_data/::1721511893
+slot_data.gd::GDScript::-1::1721511893::0::1::::SlotData<>Resource<>::
+::res://resources/::1721404111
+::res://resources/inventory_data/::1721404111
+::res://resources/inventory_data/consumable/::1721511893
+Apple.tres::Resource/Consumable::8515747533244616795::1721511893::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/Sprites/Items.png
+::res://resources/inventory_data/inventory/::1721507496
+player_test.tres::Resource/InventoryData::389891262775289885::1721507496::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
+::res://scenes/::1721512073
+double jump test.tscn::PackedScene::3136832723658996228::1721512073::0::1::::<><>::uid://cgoohn8gksabd::::res://assets/Sprites/Attack_individual-1.png<>uid://40nkdbjaa74y::::res://assets/Grass_#I.png
+game.tscn::PackedScene::3865567050859902608::1721512073::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+player.tscn::PackedScene::6149007384996584392::1721512073::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/Sprites/Little_Red_Sprite_Sheet_1.png
+::res://scenes/inventory/::1721511530
+inventory.tscn::PackedScene::5147734919272177962::1721504146::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+pickup.tscn::PackedScene::5030825636989202242::1721404111::0::1::::<><>::res://scripts/inventory/pickup.gd
+slot.tscn::PackedScene::2527484060674388920::1721511530::0::1::::<><>::res://scripts/inventory/slot.gd
+::res://scripts/::1721511893
+game.gd::GDScript::-1::1721511893::0::1::::<>Node2D<>::
+::res://scripts/inventory/::1721404111
+inventory.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
+InventoryInterface.gd::GDScript::-1::1721404111::0::1::::<>Control<>::
+pickup.gd::GDScript::-1::1721404111::0::1::::<>StaticBody2D<>::
+slot.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
+::res://scripts/player/::1721511893
+player.gd::GDScript::-1::1721511893::0::1::::<>CharacterBody2D<>::
+player_manager.gd::GDScript::-1::1721404111::0::1::::<>Node<>::

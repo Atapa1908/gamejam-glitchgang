@@ -1,8 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://ctuviu0ywg71e"]
+[gd_scene load_steps=23 format=3 uid="uid://ctuviu0ywg71e"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
-[ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/Sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
+[ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1j01q"]
 atlas = ExtResource("3_8nu85")
@@ -146,20 +146,10 @@ animations = [{
 "speed": 5.0
 }]
 
-<<<<<<< HEAD
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qahl1"]
-size = Vector2(41, 44)
-
-[node name="Player" type="CharacterBody2D"]
-position = Vector2(72, 103)
-=======
-[sub_resource type="CircleShape2D" id="CircleShape2D_7ji53"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_841ri"]
 radius = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6auiu"]
-
-[node name="Player" type="CharacterBody2D" groups=["player"]]
->>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_dcxy8")
 inventory_data = ExtResource("2_f8olv")
 metadata/_edit_group_ = true
@@ -167,32 +157,13 @@ metadata/_edit_group_ = true
 [node name="Camera" type="Camera2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-<<<<<<< HEAD
-position = Vector2(21, 21)
-scale = Vector2(0.35, 0.35)
-=======
->>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
 sprite_frames = SubResource("SpriteFrames_0of37")
-animation = &"walking"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-position = Vector2(21.5, 21)
-shape = SubResource("RectangleShape2D_qahl1")
-
-<<<<<<< HEAD
-[node name="Camera" type="Camera2D" parent="."]
-visible = false
-position = Vector2(-91, 38)
-=======
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+shape = SubResource("CircleShape2D_841ri")
 
 [node name="HitBoxes" type="Node2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="HitBoxes"]
-position = Vector2(17, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/Area2D"]
-shape = SubResource("RectangleShape2D_6auiu")
-
 [node name="HurtBoxes" type="Node2D" parent="."]
->>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
