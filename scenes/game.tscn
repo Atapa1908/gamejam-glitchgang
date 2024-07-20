@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
-[ext_resource type="Script" path="res://scenes/game.gd" id="1_l5um2"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
@@ -40,11 +40,19 @@ visible = false
 [node name="InventoryInterface" type="Control" parent="CanvasLayer"]
 unique_name_in_owner = true
 layout_mode = 3
+<<<<<<< HEAD
 anchors_preset = 0
 offset_left = -16.0
 offset_top = -16.0
 offset_right = 24.0
 offset_bottom = 24.0
+=======
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+>>>>>>> 2af74e4e3cce5aaabdf24de51380eda85cb758bf
 script = ExtResource("4_8j2ra")
 
 [node name="PlayerInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("5_5d1qk")]

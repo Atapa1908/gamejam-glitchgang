@@ -24,6 +24,16 @@ PlayerManager="*res://scripts/player/player_manager.gd"
 window/size/viewport_width=940
 window/size/viewport_height=600
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://resource scripts/": "gray",
+"res://resources/": "pink",
+"res://scenes/": "blue",
+"res://scripts/": "purple"
+}
+
 [input]
 
 left={

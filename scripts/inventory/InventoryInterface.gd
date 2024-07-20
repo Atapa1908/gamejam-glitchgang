@@ -44,6 +44,7 @@ func update_grabbed_slot() -> void:
 func _on_gui_input(event: InputEvent) -> void:
 	if not grabbed_slot_data or not event is InputEventMouseButton:
 		return
+	
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		drop_slot_data.emit(grabbed_slot_data)
 		grabbed_slot_data = null
