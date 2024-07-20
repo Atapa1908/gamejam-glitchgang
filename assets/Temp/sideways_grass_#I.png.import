@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfbppu6qepouk"
-path="res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"
+uid="uid://csc15rp24fetu"
+path="res://.godot/imported/sideways_grass_#I.png-a169c510a728f285f3d725d1be7223d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Furniture.png"
-dest_files=["res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"]
+source_file="res://assets/Temp/sideways_grass_#I.png"
+dest_files=["res://.godot/imported/sideways_grass_#I.png-a169c510a728f285f3d725d1be7223d5.ctex"]
 
 [params]
 

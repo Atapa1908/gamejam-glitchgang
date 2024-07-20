@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfbppu6qepouk"
-path="res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"
+uid="uid://bb345kuvfpqd7"
+path="res://.godot/imported/Attack_w_6_sprites_W_Basket-2.png-862ec4d9ad18bf8d6213adf712fc370f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Furniture.png"
-dest_files=["res://.godot/imported/Furniture.png-76cfcf1e4bb9196355b5885a6e2b4ee0.ctex"]
+source_file="res://assets/Temp/Attack_w_6_sprites_W_Basket-2.png"
+dest_files=["res://.godot/imported/Attack_w_6_sprites_W_Basket-2.png-862ec4d9ad18bf8d6213adf712fc370f.ctex"]
 
 [params]
 
