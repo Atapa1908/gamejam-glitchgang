@@ -26,7 +26,6 @@ region = Rect2(0, 0, 32, 32)
 script = ExtResource("1_djnnc")
 potency = 10.0
 name = ""
-random = "res://scenes"
 description = "A tasty apple."
 stackable = true
 texture = SubResource("AtlasTexture_m033m")

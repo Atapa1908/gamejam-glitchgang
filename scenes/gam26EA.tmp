@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
-[ext_resource type="Script" path="res://scripts/Door.gd" id="4_tq0at"]
+[ext_resource type="Script" path="res://scenes/Door.gd" id="4_tq0at"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 
@@ -40,8 +40,6 @@ mesh = SubResource("BoxMesh_ia8re")
 
 [node name="Door" type="Area2D" parent="Doors"]
 position = Vector2(-184, -24)
-collision_layer = 2
-collision_mask = 0
 monitorable = false
 script = ExtResource("4_tq0at")
 scene = "res://scenes/game.tscn"

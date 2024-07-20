@@ -1,3 +1,9 @@
+TextureRect
+Marker2D
+MeshInstance2D
+CollisionShape2D
+Area2D
+Node2D
 HBoxContainer
 VBoxContainer
 BoxContainer
@@ -6,10 +12,4 @@ PanelContainer
 CenterContainer
 LightmapGI
 AnimationPlayer
-CollisionShape2D
-Area2D
-Node2D
 AudioStreamPlayer
-MeshInstance2D
-Camera2D
-Control

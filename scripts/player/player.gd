@@ -63,7 +63,10 @@ func _physics_process(delta):
 	if direction != 0:
 		last_x_direction = direction
 	
-	animated_sprite.flip_h = clamp(direction * 100, -1, 1) >= 0
+	if direction > 0:
+		animated_sprite.flip_h = false
+	elif direction < 0:
+		animated_sprite.flip_h = true
 	
 	if is_on_floor():
 		if direction == 0:

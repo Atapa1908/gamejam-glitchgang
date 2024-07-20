@@ -1,14 +1,12 @@
 res://scenes/player.tscn
 res://resources/inventory_data/consumable/Apple.tres
 res://resources/inventory_data/inventory/player_test.tres
-res://scripts/player/player.gd
 res://scenes/game.tscn
-res://resource scripts/inventory/item_data/item_data.gd
-res://resource scripts/inventory/consumable/consumable.gd
-res://resource scripts/inventory/slot_data/slot_data.gd
-res://README.md
 res://scenes/menus/main_menu.tscn
-res://scripts/game.gd
 res://scenes/inventory/slot.tscn
-res://scenes/inventory/inventory.tscn
-res://scenes/menus/main_menu.gd
+res://scenes/Door.gd
+res://scripts/player/player.gd
+res://scripts/game.gd
+res://scripts/scene_manager.gd
+res://resource scripts/inventory/consumable/consumable.gd
+res://scenes/Backdrop.tscn

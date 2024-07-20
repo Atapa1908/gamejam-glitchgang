@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721503101
+::res://::1721507597
 icon.svg::CompressedTexture2D::3621610282134603035::1721404111::1721404111::1::::<><>::
 README.md::TextFile::-1::1721502882::0::1::::<><>::
 ::res://assets/::1721503101
@@ -46,12 +46,12 @@ Ground_#1.png::CompressedTexture2D::4613660178300168069::1721319160::1721503091:
 sideways_grass_#2.png::CompressedTexture2D::1501948765451248708::1721319294::1721503091::1::::<><>::
 sideways_grass_#I.png::CompressedTexture2D::6042002441342710210::1721319228::1721503091::1::::<><>::
 Test_tile_set.png::CompressedTexture2D::977593057223829980::1721318942::1721503091::1::::<><>::
-::res://assets/ui/::1721503084
+::res://assets/ui/::1721503242
 Quit_Sign1.png::CompressedTexture2D::1912600883476565349::1721503239::1721503242::1::::<><>::
 ::res://resource scripts/::1721404111
 ::res://resource scripts/inventory/::1721404111
-::res://resource scripts/inventory/consumable/::1721501756
-consumable.gd::GDScript::-1::1721501756::0::1::::Consumable<>ItemData<>::
+::res://resource scripts/inventory/consumable/::1721508687
+consumable.gd::GDScript::-1::1721508687::0::1::::Consumable<>ItemData<>::
 ::res://resource scripts/inventory/inventory_data/::1721404111
 inventory_data.gd::GDScript::-1::1721404111::0::1::::InventoryData<>Resource<>::
 ::res://resource scripts/inventory/item_data/::1721502644
@@ -60,26 +60,29 @@ item_data.gd::GDScript::-1::1721502644::0::1::::ItemData<>Resource<>::
 slot_data.gd::GDScript::-1::1721502204::0::1::::SlotData<>Resource<>::
 ::res://resources/::1721404111
 ::res://resources/inventory_data/::1721404111
-::res://resources/inventory_data/consumable/::1721503097
-Apple.tres::Resource/Consumable::8515747533244616795::1721503097::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/sprites/Items.png
-::res://resources/inventory_data/inventory/::1721502450
-player_test.tres::Resource/InventoryData::389891262775289885::1721502450::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
-::res://scenes/::1721503097
-game.tscn::PackedScene::3865567050859902608::1721502920::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-player.tscn::PackedScene::6149007384996584392::1721503097::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/sprites/Little_Red_Sprite_Sheet_1.png
-::res://scenes/inventory/::1721404111
-inventory.tscn::PackedScene::5147734919272177962::1721404111::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+::res://resources/inventory_data/consumable/::1721507496
+Apple.tres::Resource/Consumable::8515747533244616795::1721507496::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/sprites/Items.png
+::res://resources/inventory_data/inventory/::1721507496
+player_test.tres::Resource/InventoryData::389891262775289885::1721507496::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
+::res://scenes/::1721509932
+Door.gd::GDScript::-1::1721509885::0::1::::<>Area2D<>::
+game.tscn::PackedScene::3865567050859902608::1721511391::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>res://scenes/Door.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+player.tscn::PackedScene::6149007384996584392::1721511377::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/sprites/Little_Red_Sprite_Sheet_1.png
+::res://scenes/inventory/::1721509932
+inventory.tscn::PackedScene::5147734919272177962::1721504146::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
 pickup.tscn::PackedScene::5030825636989202242::1721404111::0::1::::<><>::res://scripts/inventory/pickup.gd
-slot.tscn::PackedScene::2527484060674388920::1721404111::0::1::::<><>::res://scripts/inventory/slot.gd
-::res://scenes/menus/::1721502963
-main_menu.tscn::PackedScene::5985110753305556569::1721502963::0::1::::<><>::
-::res://scripts/::1721405349
-game.gd::GDScript::-1::1721404111::0::1::::<>Node2D<>::
+slot.tscn::PackedScene::2527484060674388920::1721511377::0::1::::<><>::res://scripts/inventory/slot.gd
+::res://scenes/menus/::1721509932
+main_menu.gd::GDScript::-1::1721504840::0::1::::<>Control<>::
+main_menu.tscn::PackedScene::5985110753305556569::1721511377::0::1::::<><>::res://scenes/menus/main_menu.gd<>uid://2iqi0hx4of8p::::res://assets/ui/Quit_Sign1.png
+::res://scripts/::1721509913
+game.gd::GDScript::-1::1721508693::0::1::::<>Node2D<>::
+scene_manager.gd::GDScript::-1::1721511377::0::1::::<>Node<>::
 ::res://scripts/inventory/::1721404111
 inventory.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
 InventoryInterface.gd::GDScript::-1::1721404111::0::1::::<>Control<>::
 pickup.gd::GDScript::-1::1721404111::0::1::::<>StaticBody2D<>::
 slot.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
-::res://scripts/player/::1721501707
-player.gd::GDScript::-1::1721501707::0::1::::<>CharacterBody2D<>::
+::res://scripts/player/::1721507820
+player.gd::GDScript::-1::1721507820::0::1::::<>CharacterBody2D<>::
 player_manager.gd::GDScript::-1::1721404111::0::1::::<>Node<>::

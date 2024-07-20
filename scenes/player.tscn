@@ -152,10 +152,13 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6auiu"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_dcxy8")
 inventory_data = ExtResource("2_f8olv")
 
 [node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0of37")
@@ -170,6 +173,7 @@ shape = SubResource("CircleShape2D_7ji53")
 
 [node name="Area2D" type="Area2D" parent="HitBoxes"]
 position = Vector2(17, 0)
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/Area2D"]
 shape = SubResource("RectangleShape2D_6auiu")
