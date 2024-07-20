@@ -1,3 +1,10 @@
+HBoxContainer
+VBoxContainer
+BoxContainer
+TextureButton
+PanelContainer
+CenterContainer
+LightmapGI
 AnimationPlayer
 CollisionShape2D
 Area2D
@@ -6,7 +13,3 @@ AudioStreamPlayer
 MeshInstance2D
 Camera2D
 Control
-CanvasLayer
-StaticBody2D
-AnimatedSprite2D
-CharacterBody2D

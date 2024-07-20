@@ -1,5 +1,5 @@
 class_name SlotData
-extends Resource
+extends Resource 
 
 const MAX_STACK_SIZE: int = 99
 

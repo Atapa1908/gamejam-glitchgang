@@ -23,7 +23,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var dashing: bool = false
 var dash_timer: float
-var last_x_direction: int = 1
+var last_x_direction: float = 1
 
 ## Combat Variables
 var max_hp = 10
@@ -42,7 +42,6 @@ func _physics_process(delta):
 		Input.is_action_just_pressed("dash"):
 		dashing = true
 		dash_timer = DEFAULT_DASH_TIME
-		print(dash_timer)
 	
 	# Actually makes the user dash
 	if dashing and not is_zero_approx(dash_timer):
@@ -50,7 +49,6 @@ func _physics_process(delta):
 		# The clamp turns 2 into 1
 		var dash_direction: int = clamp(last_x_direction * 100.0, -1, 1)
 		velocity.x = dash_direction * DASH_SPEED
-		print("%s : %s" % [last_x_direction, dash_direction])
 		move_and_slide()
 		return
 	
