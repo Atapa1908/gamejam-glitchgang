@@ -3,8 +3,6 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-@onready var hit_boxes: Node2D = $HitBoxes
-@onready var hurt_boxes: Node2D = $HurtBoxes
 
 # Stores all the abilities that the player has as a list of enumerates
 # NOTE: 
@@ -47,7 +45,6 @@ func _physics_process(delta):
 		Input.is_action_just_pressed("dash"):
 		dashing = true
 		dash_timer = DEFAULT_DASH_TIME
-		print(dash_timer)
 	
 	# Actually makes the user dash
 	if dashing and not is_zero_approx(dash_timer):
@@ -55,7 +52,6 @@ func _physics_process(delta):
 		# The clamp turns 2 into 1
 		var dash_direction: int = clamp(last_x_direction * 100.0, -1, 1)
 		velocity.x = dash_direction * DASH_SPEED
-		print("%s : %s" % [last_x_direction, dash_direction])
 		move_and_slide()
 		return
 	
@@ -77,8 +73,7 @@ func _physics_process(delta):
 	
 	if direction != 0:
 		last_x_direction = direction
-	
-	animated_sprite.flip_h = clamp(direction * 100, -1, 1) >= 0
+		animated_sprite.flip_h = clamp(direction * 100, -1, 1) <= 0
 	
 	if is_on_floor():
 		if direction == 0:
@@ -94,19 +89,3 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 	
 	move_and_slide()
-
-# NOTE POTENTIALLY LEGACY
-# Esta needs to inspect
-#func _process(delta):
-	#if Input.is_action_just_pressed("attack"):
-		#$AnimatedSprite2D/Area2D/CollisionShape2D.disabled = false
-		#$AnimatedSprite2D.animation = "attack"
-	#else:
-		#$AnimatedSprite2D/Area2D/CollisionShape2D.disabled = true
-#
-#func _on_area_2d_body_entered(body):
-	#if body.is_in_group("hit"):
-		#body.take_damage()
-	#else:
-		#pass
-
