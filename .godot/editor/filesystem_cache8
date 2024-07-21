@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1721520864
+::res://::1721521243
 icon.svg::CompressedTexture2D::3621610282134603035::1721404111::1721404111::1::::<><>::
 README.md::TextFile::-1::1721519703::0::1::::<><>::
 ::res://assets/::1721519703
@@ -23,7 +23,7 @@ basket-sheet.png::CompressedTexture2D::1615979628290006380::1721488888::17215197
 Furniture.png::CompressedTexture2D::7513209287912453602::1721404111::1721519728::1::::<><>::
 Items.png::CompressedTexture2D::6529314706084031611::1721404111::1721519728::1::::<><>::
 Little_Red_Sheet_All.png::CompressedTexture2D::4289660035274256747::1721490412::1721519728::1::::<><>::
-Little_Red_Sprite_Sheet_1.png::CompressedTexture2D::852763472861524269::1721404111::1721519728::1::::<><>::
+Little_Red_Sprite_Sheet_1.png::CompressedTexture2D::852763472861524269::1721521232::1721521244::1::::<><>::
 ::res://assets/temp/::1721519728
 Attack_individual-1.png::CompressedTexture2D::2351547814588286144::1721404111::1721519728::1::::<><>::
 Attack_individual-2.png::CompressedTexture2D::5564872391364304062::1721404111::1721519728::1::::<><>::
@@ -58,13 +58,13 @@ item_data.gd::GDScript::-1::1721519703::0::1::::ItemData<>Resource<>::
 slot_data.gd::GDScript::-1::1721519703::0::1::::SlotData<>Resource<>::
 ::res://resources/::1721404111
 ::res://resources/inventory_data/::1721404111
-::res://resources/inventory_data/consumable/::1721520144
-Apple.tres::Resource/Consumable::8515747533244616795::1721520144::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/sprites/Items.png
-::res://resources/inventory_data/inventory/::1721520144
-player_test.tres::Resource/InventoryData::389891262775289885::1721520144::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
-::res://scenes/::1721520742
-game.tscn::PackedScene::3865567050859902608::1721520742::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
-player.tscn::PackedScene::6149007384996584392::1721520742::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/sprites/Little_Red_Sprite_Sheet_1.png
+::res://resources/inventory_data/consumable/::1721521098
+Apple.tres::Resource/Consumable::8515747533244616795::1721521098::0::1::::<><>::res://resource scripts/inventory/consumable/consumable.gd<>uid://c0a34hkr60jd0::::res://assets/sprites/Items.png
+::res://resources/inventory_data/inventory/::1721521098
+player_test.tres::Resource/InventoryData::389891262775289885::1721521098::0::1::::<><>::res://resource scripts/inventory/inventory_data/inventory_data.gd<>uid://dtldeacldsf6j::::res://resources/inventory_data/consumable/Apple.tres<>res://resource scripts/inventory/slot_data/slot_data.gd
+::res://scenes/::1721521153
+game.tscn::PackedScene::3865567050859902608::1721521153::0::1::::<><>::uid://ctuviu0ywg71e::::res://scenes/player.tscn<>res://scripts/game.gd<>uid://cdw770qy1hiy1::::res://scenes/inventory/pickup.tscn<>res://scripts/inventory/InventoryInterface.gd<>uid://cflupa8oq6kte::::res://scenes/inventory/inventory.tscn<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
+player.tscn::PackedScene::6149007384996584392::1721521153::0::1::::<><>::res://scripts/player/player.gd<>uid://fs4pmwxb0qbd::::res://resources/inventory_data/inventory/player_test.tres<>uid://mfc5ivadls2h::::res://assets/sprites/Little_Red_Sprite_Sheet_1.png
 ::res://scenes/inventory/::1721511530
 inventory.tscn::PackedScene::5147734919272177962::1721504146::0::1::::<><>::res://scripts/inventory/inventory.gd<>uid://bcalj77kdivbs::::res://scenes/inventory/slot.tscn
 pickup.tscn::PackedScene::5030825636989202242::1721404111::0::1::::<><>::res://scripts/inventory/pickup.gd
@@ -76,8 +76,8 @@ inventory.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
 InventoryInterface.gd::GDScript::-1::1721404111::0::1::::<>Control<>::
 pickup.gd::GDScript::-1::1721404111::0::1::::<>StaticBody2D<>::
 slot.gd::GDScript::-1::1721404111::0::1::::<>PanelContainer<>::
-::res://scripts/player/::1721519703
-player.gd::GDScript::-1::1721519703::0::1::::<>CharacterBody2D<>::
+::res://scripts/player/::1721520936
+player.gd::GDScript::-1::1721520936::0::1::::<>CharacterBody2D<>::
 player_manager.gd::GDScript::-1::1721404111::0::1::::<>Node<>::
-::res://Shaders/::1721520745
-player.gdshader::Shader::-1::1721520745::0::1::::<><>::
+::res://Shaders/::1721521155
+player.gdshader::Shader::-1::1721521155::0::1::::<><>::
