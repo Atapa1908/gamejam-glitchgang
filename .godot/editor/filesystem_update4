@@ -5,4 +5,3 @@ res://scenes/game.tscn
 res://scenes/backdrop.tscn
 res://scenes/menus/main_menu.tscn
 res://scenes/door.tscn
-res://scripts/door.gd
