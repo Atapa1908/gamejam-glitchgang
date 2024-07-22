@@ -23,5 +23,5 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 func transition(door_name: String) -> void:
 	var door: Area2D = doors.find_child(door_name)
 	player.global_position = \
-		door.get_node("Marker").global_position
+		door.get_node("Marker2D").global_position
 	

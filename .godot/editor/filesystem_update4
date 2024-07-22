@@ -1,12 +1,8 @@
 res://scenes/player.tscn
 res://resources/inventory_data/consumable/Apple.tres
 res://resources/inventory_data/inventory/player_test.tres
-res://scripts/Door.gd
 res://scenes/game.tscn
-res://scenes/Backdrop.tscn
-res://scenes/menus/main_menu.tscn
-res://scripts/scene_manager.gd
 res://scenes/backdrop.tscn
+res://scenes/menus/main_menu.tscn
+res://scenes/door.tscn
 res://scripts/door.gd
-res://scripts/menus/main_menu.gd
-res://scripts/managers/scene_manager.gd
