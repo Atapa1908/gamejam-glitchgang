@@ -1,12 +1,5 @@
 extends Node
 
-enum abilities {
-	DASH = 0,
-	DOUBLE_JUMP = 1,
-	SLIDING = 2,
-	
-}
-
 var player_ref: CharacterBody2D
 
 func use_slot_data(slot_data: SlotData) -> void:
