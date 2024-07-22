@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="gamejam-glitchgang"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="res://scenes/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerManager="*res://scripts/player/player_manager.gd"
+PlayerManager="*res://scripts/managers/player_manager.gd"
+SceneManager="*res://scripts/managers/scene_manager.gd"
 
 [display]
 
@@ -32,7 +33,8 @@ folder_colors={
 "res://resource scripts/": "gray",
 "res://resources/": "pink",
 "res://scenes/": "blue",
-"res://scripts/": "purple"
+"res://scripts/": "purple",
+"res://shaders/": "orange"
 }
 
 [input]

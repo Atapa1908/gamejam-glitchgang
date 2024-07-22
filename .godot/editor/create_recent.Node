@@ -1,8 +1,9 @@
+Marker2D
+Node2D
 ColorRect
 AnimationPlayer
 CollisionShape2D
 Area2D
-Node2D
 AudioStreamPlayer
 MeshInstance2D
 Camera2D

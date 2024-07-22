@@ -1,6 +1,7 @@
+res://scenes/menus
+res://scripts/managers
 res://Shaders
 res://assets/Sprites
-res://scripts/player
 res://scripts/inventory
 res://scripts
 res://scenes
