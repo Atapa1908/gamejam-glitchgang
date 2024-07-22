@@ -1,7 +1,7 @@
 extends Node
 
 #var current_scene: String = ""
-var wait_time: float = 5.0
+var wait_time: float = 2.0
 var last_door: String = "Door"
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 
