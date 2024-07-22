@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://ctuviu0ywg71e"]
+[gd_scene load_steps=31 format=3 uid="uid://ctuviu0ywg71e"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
 [ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
 [ext_resource type="Texture2D" uid="uid://b2d7cruu0ppx0" path="res://assets/sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
+[ext_resource type="Script" path="res://scripts/hitbox.gd" id="5_1tlxw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bb3r"]
 atlas = ExtResource("3_m6nn3")
@@ -213,6 +214,9 @@ shape = SubResource("CircleShape2D_7ji53")
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(8, 3)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_1tlxw")
 
 [node name="HitBoxArea" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_uk1pu")
