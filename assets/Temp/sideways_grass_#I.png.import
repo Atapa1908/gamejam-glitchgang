@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csc15rp24fetu"
-path="res://.godot/imported/sideways_grass_#I.png-51dd88c88ffb995fc55ae064236d4da6.ctex"
+path="res://.godot/imported/sideways_grass_#I.png-a169c510a728f285f3d725d1be7223d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp/sideways_grass_#I.png"
-dest_files=["res://.godot/imported/sideways_grass_#I.png-51dd88c88ffb995fc55ae064236d4da6.ctex"]
+source_file="res://assets/Temp/sideways_grass_#I.png"
+dest_files=["res://.godot/imported/sideways_grass_#I.png-a169c510a728f285f3d725d1be7223d5.ctex"]
 
 [params]
 

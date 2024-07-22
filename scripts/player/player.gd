@@ -31,7 +31,9 @@ var player_alive = true
 ## Double Jump Count
 var jump_count = 0
 var max_jumps = 1
-
+var mushroom_active = false
+var mushroom_timer = 0.0
+var consume_mushroom = true 
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -59,13 +61,26 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	
+	# Mushroom Effect timer
+	if mushroom_active:
+		mushroom_timer += delta
+		if mushroom_timer >= 0.0:
+			mushroom_active = false 
+			max_jumps = 1
+		
+	
 	# Double Jump
 	if Input.is_action_just_pressed("ui_accept") and jump_count < max_jumps:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 		
-	if is_on_floor():
-		jump_count = 0 
+	func consume_mushroom():
+		mushroom_active = true
+		max_jumps = 2
+		mushroom_timer = 0.0
+		
+		if is_on_floor():
+			jump_count = 0 
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dq4pcd0dnl6bw"
-path="res://.godot/imported/Attack_w_6_sprites_W_Basket-Sheet.png-7fc3b0ea55b24f064e757a52377f1348.ctex"
+path="res://.godot/imported/Attack_w_6_sprites_W_Basket-Sheet.png-083a3e90f9a6466ef01781a3181a3542.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Attack_w_6_sprites_W_Basket-Sheet.png"
-dest_files=["res://.godot/imported/Attack_w_6_sprites_W_Basket-Sheet.png-7fc3b0ea55b24f064e757a52377f1348.ctex"]
+source_file="res://assets/Sprites/Attack_w_6_sprites_W_Basket-Sheet.png"
+dest_files=["res://.godot/imported/Attack_w_6_sprites_W_Basket-Sheet.png-083a3e90f9a6466ef01781a3181a3542.ctex"]
 
 [params]
 

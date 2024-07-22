@@ -1,9 +1,5 @@
+res://scripts/player/player.gd
 res://scenes/player.tscn
 res://resources/inventory_data/consumable/Apple.tres
 res://resources/inventory_data/inventory/player_test.tres
-<<<<<<< HEAD
-res://scripts/player/player.gd
-=======
-res://Shaders/player.gdshader
->>>>>>> 61a3b393dd10b2eeffeef8ae19559509622d50b9
 res://scenes/game.tscn
