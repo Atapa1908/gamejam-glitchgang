@@ -8,6 +8,7 @@ extends Node2D
 @export var packed_pickup: PackedScene
 
 func _ready() -> void:
+	SceneManager.fade_in()
 	transition(SceneManager.last_door)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 

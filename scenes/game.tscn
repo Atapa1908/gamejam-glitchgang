@@ -41,7 +41,7 @@ mesh = SubResource("BoxMesh_ia8re")
 [node name="Door" type="Area2D" parent="Doors"]
 position = Vector2(-184, -24)
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 monitorable = false
 script = ExtResource("4_tq0at")
 scene = "res://scenes/game.tscn"
