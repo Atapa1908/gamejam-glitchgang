@@ -1,3 +1,4 @@
+Control
 CanvasLayer
 ColorRect
 TextureRect
@@ -12,4 +13,3 @@ BoxContainer
 TextureButton
 PanelContainer
 CenterContainer
-LightmapGI
