@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bgv2i56q3e4go"
-path="res://.godot/imported/dark_forest_test.wav-f35d150901baa054beaa1374f1d111a6.sample"
+path="res://.godot/imported/dark_forest_test.wav-90af365ab209c5fe131eabe68c6595c3.sample"
 
 [deps]
 
-source_file="res://assets/bgm/dark_forest_test.wav"
-dest_files=["res://.godot/imported/dark_forest_test.wav-f35d150901baa054beaa1374f1d111a6.sample"]
+source_file="res://assets/BGM/dark_forest_test.wav"
+dest_files=["res://.godot/imported/dark_forest_test.wav-90af365ab209c5fe131eabe68c6595c3.sample"]
 
 [params]
 
