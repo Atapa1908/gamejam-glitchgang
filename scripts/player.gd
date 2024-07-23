@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
+@onready var hit_box: Area2D = $HitBox
+@onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
 
 @export var inventory_data: InventoryData
@@ -24,10 +26,11 @@ var dashing: bool = false
 var dash_timer: float
 var last_whole_x_direction: int = 1
 
-## Combat Vars
-var max_hp = 10
-var current_hp = 10
-var player_alive = true
+## Combat Variables
+var max_hp: int = 10
+var current_hp: int = 10
+var player_alive: bool = true
+var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
@@ -87,16 +90,19 @@ func _physics_process(delta):
 	# Changes the side the palyer is facing and saves the integer input of the direction
 	if direction != 0:
 		last_whole_x_direction = clamp(direction * 100, -1, 1) <= 0
+		# NEEDS TO BE CHANGED IF HITBOX IS MOVED IN 2D
+		hit_box.position.x = 8 * last_whole_x_direction
 		animated_sprite.flip_h = last_whole_x_direction
 	
 	# Plays the correct animation
 	if is_on_floor():
-		if direction == 0:
+		if direction == 0 and is_attacking == false:
 			animated_sprite.play("idle")
-		else:
+		elif direction !=0 and is_attacking == false:
 			animated_sprite.play("walking")
 	else:
-		animated_sprite.play("jumping")
+		if is_attacking == false:
+			animated_sprite.play("jumping")
 	
 	if direction:
 		# Adds velocity to the player
@@ -105,11 +111,20 @@ func _physics_process(delta):
 		# Decelerates the player
 		velocity.x = move_toward(velocity.x, 0, WALK_SPEED)
 	
+	if Input.is_action_just_pressed("Attack"):
+		animated_sprite.play("attack_basket")
+		is_attacking = true
+		hit_box_area.disabled = false
+	
 	move_and_slide()
+
+func _on_animated_sprite_animation_finished():
+	if animated_sprite.animation == "attack_basket":
+		hit_box_area.disabled = true
+		is_attacking = false
 
 func consume_jump_mushroom():
 	mushroom_active = true
 	max_jumps = 2
 	mushroom_timer = 0.0
-	
 	

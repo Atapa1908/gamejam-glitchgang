@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://br51i58wkqq6u" path="res://scenes/door.tscn" id="4_p024i"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
+[ext_resource type="PackedScene" uid="uid://bwp0ggym3npdq" path="res://scenes/enemy.tscn" id="7_jl1v5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_df4oq"]
 
@@ -61,6 +62,12 @@ layout_mode = 0
 unique_name_in_owner = true
 visible = false
 layout_mode = 0
+
+[node name="Enemy" parent="." instance=ExtResource("7_jl1v5")]
+position = Vector2(188, -91)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_jl1v5")]
+position = Vector2(-110, -71)
 
 [connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]
