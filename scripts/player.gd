@@ -31,7 +31,6 @@ var max_hp: int = 10
 var current_hp: int = 10
 var player_alive: bool = true
 var is_attacking: bool = false
-var player_alive = true
 
 ## Double Jump Count
 var jump_count = 0
