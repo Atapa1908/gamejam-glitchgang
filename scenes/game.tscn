@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
+[ext_resource type="PackedScene" uid="uid://br51i58wkqq6u" path="res://scenes/door.tscn" id="4_p024i"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 [ext_resource type="PackedScene" uid="uid://bwp0ggym3npdq" path="res://scenes/enemy.tscn" id="7_jl1v5"]
@@ -30,6 +31,16 @@ scale = Vector2(860, 176)
 mesh = SubResource("BoxMesh_ia8re")
 
 [node name="Items" type="Node2D" parent="."]
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("4_p024i")]
+position = Vector2(-273, -24)
+scene = "res://scenes/menus/main_menu.tscn"
+scene_door_name = "Door"
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door"]
+position = Vector2(121, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
