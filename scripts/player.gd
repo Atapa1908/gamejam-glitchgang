@@ -3,11 +3,8 @@ extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
-<<<<<<< HEAD:scripts/player/player.gd
 @onready var hit_box: Area2D = $HitBox
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
-=======
->>>>>>> main:scripts/player.gd
 
 
 @export var inventory_data: InventoryData
