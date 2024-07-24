@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://ctuviu0ywg71e"]
+[gd_scene load_steps=33 format=3 uid="uid://ctuviu0ywg71e"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
-[ext_resource type="Texture2D" uid="uid://mfc5ivadls2h" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
-[ext_resource type="Texture2D" uid="uid://b2d7cruu0ppx0" path="res://assets/sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
+[ext_resource type="Texture2D" uid="uid://bik3t4tkpg7hd" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
+[ext_resource type="Texture2D" uid="uid://dnnuk154vp1le" path="res://assets/sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="5_1tlxw"]
+[ext_resource type="AudioStream" uid="uid://bwccfss7wuyyg" path="res://assets/audio/jump_02.wav" id="6_6ne5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bb3r"]
 atlas = ExtResource("3_m6nn3")
@@ -193,6 +194,10 @@ radius = 7.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uk1pu"]
 size = Vector2(6, 6)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d7f3"]
+radius = 6.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 3
 collision_mask = 3
@@ -223,5 +228,14 @@ script = ExtResource("5_1tlxw")
 shape = SubResource("RectangleShape2D_uk1pu")
 disabled = true
 
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6ne5w")
+
+[node name="HazardDetector" type="Area2D" parent="."]
+
+[node name="HazardCollision" type="CollisionShape2D" parent="HazardDetector"]
+shape = SubResource("CircleShape2D_4d7f3")
+
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_finished"]
 [connection signal="animation_looped" from="AnimatedSprite" to="." method="_on_animated_sprite_animation_looped"]
+[connection signal="area_entered" from="HazardDetector" to="." method="_on_hazard_detector_area_entered"]

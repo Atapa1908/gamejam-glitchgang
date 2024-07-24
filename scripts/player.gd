@@ -27,8 +27,8 @@ var dash_timer: float
 var last_whole_x_direction: int = 1
 
 ## Combat Variables
-var max_hp: int = 10
-var current_hp: int = 10
+var max_hp: int = 100
+var current_hp: int = 100
 var player_alive: bool = true
 var is_attacking: bool = false
 
@@ -64,6 +64,7 @@ func _physics_process(delta):
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		$JumpSound.play()
 		velocity.y = JUMP_VELOCITY
 	
 	# Mushroom Effect timer
@@ -127,4 +128,8 @@ func consume_jump_mushroom():
 	mushroom_active = true
 	max_jumps = 2
 	mushroom_timer = 0.0
-	
+
+
+func _on_hazard_detector_area_entered(area):
+	current_hp -= 10
+	print(current_hp)

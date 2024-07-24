@@ -5,7 +5,7 @@ var current_hp: int = 100
 var player_attacks: bool = false
 
 func take_damage(amount: int) -> void:
-	current_hp -= 20
+	current_hp -= 10
 	print(current_hp)
 
 
