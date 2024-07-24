@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://da8gt0mbhxhu3"]
+
+[ext_resource type="Texture2D" uid="uid://yxyhba4ygivr" path="res://assets/sprites/Items.png" id="1_o7i3t"]
+[ext_resource type="PackedScene" uid="uid://cto6o3fdmldj1" path="res://scenes/hazard_area.tscn" id="2_fbisg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0s838"]
+atlas = ExtResource("1_o7i3t")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a7x52"]
+radius = 20.0998
+
+[node name="Hazard" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, -16)
+texture = SubResource("AtlasTexture_0s838")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(16, -16)
+shape = SubResource("CircleShape2D_a7x52")
+
+[node name="HazardArea" parent="." instance=ExtResource("2_fbisg")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HazardArea"]
+polygon = PackedVector2Array(8, 0, 16, -16, 24, 0)

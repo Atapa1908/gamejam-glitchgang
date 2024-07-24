@@ -11,6 +11,9 @@ func _on_range_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and body.inventory_data.pick_up_slot_data(slot_data):
 		queue_free()
 	
+func _init() -> void:
+	collision_layer = 0
+	collision_mask = 2
 
 # NOTE THIS IS NOT A REQUIREMENT #
 # Check if quantity is greater than 2 then add 1 more sprite
