@@ -6,11 +6,13 @@ var wait_time: float = 1.5
 var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
-var default_volume: float = 100.0:
+var default_volume: float = 25.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
 
 var radios: Array[AudioStreamPlayer]
+# Might seem misleading but, it gets set to false when the process function is looping a song
+var looping: bool = true
 
 var worlds_data: Dictionary = {
 	"game": {
@@ -53,10 +55,24 @@ func _ready():
 	radios.append(
 		create_new_radio(
 			worlds_data["main_menu"]["bgms"].values()[randi() % worlds_data["main_menu"]["bgms"].size()],
-			100.0
+			default_volume
 			)
 		)
 	
+
+func _process(delta: float) -> void:
+	#print(
+		#"%s\n%s : %s : %s" % \
+		#[
+			#radios[0].stream.resource_path,
+			#radios[0].stream.get_length(),
+			#radios[0].get_playback_position(),
+			#0.0 if radios.size() <= 1 else db_to_linear(radios[1].volume_db) * 2
+		#]
+	#)
+	if radios[0].get_playback_position() + delta * 2 >= radios[0].stream.get_length() and looping:
+		looping = false
+		loop_song(radios[0].stream.get_length() - radios[0].get_playback_position())
 
 # Transitioning scenes
 func transition(world_name: String, door_name: String) -> void:
@@ -101,10 +117,41 @@ func music_transition(bgms: Dictionary, world_name: String) -> void:
 		position = radios[0].get_playback_position()
 	# Create a new radio for transitioning
 	
-	radios.append(create_new_radio(new_bgm, default_volume, position))
+	for radio in radios:
+		radio.volume_db = linear_to_db(default_volume / 200.0)
+	
+	var new_radio: AudioStreamPlayer = create_new_radio(new_bgm, default_volume / 2, position)
+	radios.append(new_radio)
+	
+	get_tree().create_timer(0.3, true, false, true).timeout.connect(
+		func():
+			for radio in radios:
+				if radio != new_radio:
+					radio.queue_free()
+			radios.clear()
+			new_radio.volume_db = linear_to_db(default_volume / 200.0)
+			radios.append(new_radio)
+	)
 	
 	# Do transition
 	
+
+func loop_song(time_left: float) -> void:
+	radios.append(
+		create_new_radio(
+			radios[0].stream.resource_path,
+			db_to_linear(radios[0].volume_db) / 2
+		)
+	)
+	
+	get_tree().create_timer(time_left, true, false, true).timeout.connect(
+		func():
+			radios[1].volume_db = radios[0].volume_db
+			radios[0].queue_free()
+			radios.remove_at(0)
+	)
+	
+	looping = true
 
 func clear_radios() -> void:
 	for radio in radios:
@@ -123,7 +170,6 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 	new_radio.autoplay = true
 	# The Song cannot play if the node doesn't get put in the tree
 	self.add_child(new_radio)
-	
 	# Sometimes you'll want to change the position like with changing from shadow to light etc
 	new_radio.seek(position)
 	
