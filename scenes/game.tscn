@@ -37,7 +37,7 @@ mesh = SubResource("BoxMesh_ia8re")
 
 [node name="Door" parent="Doors" instance=ExtResource("4_p024i")]
 position = Vector2(-273, -24)
-scene = "res://scenes/menus/main_menu.tscn"
+scene_name = "main_menu"
 scene_door_name = "Door"
 
 [node name="Marker2D" type="Marker2D" parent="Doors/Door"]
