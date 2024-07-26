@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdw770qy1hiy1"]
+[gd_scene load_steps=6 format=3 uid="uid://cdw770qy1hiy1"]
 
 [ext_resource type="Script" path="res://scripts/inventory/pickup.gd" id="1_g7pdl"]
+[ext_resource type="AudioStream" uid="uid://cdeiqpfiexv0j" path="res://assets/audio/collect_thing.wav" id="2_hem6s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_53ty1"]
 
@@ -22,5 +23,8 @@ sprite_frames = SubResource("SpriteFrames_xglsc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
 shape = SubResource("CircleShape2D_lxf8f")
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hem6s")
 
 [connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
