@@ -28,13 +28,12 @@ window/size/viewport_height=720
 [file_customization]
 
 folder_colors={
-"res://Shaders/": "green",
 "res://assets/": "red",
 "res://resource scripts/": "gray",
 "res://resources/": "pink",
 "res://scenes/": "blue",
 "res://scripts/": "purple",
-"res://shaders/": "orange"
+"res://shaders/": "green"
 }
 
 [input]
