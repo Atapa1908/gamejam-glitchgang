@@ -154,14 +154,14 @@ func loop_song(time_left: float, start_time: float = 0.0) -> void:
 		)
 	)
 	
-	get_tree().create_timer(time_left / 0.8, true, false, true).timeout.connect(
+	get_tree().create_timer(0.02, true, false, true).timeout.connect(
 		func():
 			radios[1].volume_db = radios[0].volume_db
 			radios[0].queue_free()
 			radios.remove_at(0)
+			looping = true
 	)
 	
-	looping = true
 
 func clear_radios() -> void:
 	for radio in radios:

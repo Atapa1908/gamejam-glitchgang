@@ -2,6 +2,7 @@ extends Control
 
 func _ready() -> void:
 	SceneManager.default_volume = 0.0
+	SceneManager.loop_end = 10.0
 	SceneManager.music_transition("main_menu")
 
 func _on_start_pressed() -> void:
