@@ -36,19 +36,7 @@ var worlds_data: Dictionary = {
 		}
 	},
 }
-#worlds_data["game]["bgms]
-# Template:
-#var worlds_data: Dictionary = {
-#	"world_name": {
-#		"world_scene_path": "scene_path",
-#		"inst_doors": [ # Potential doors to be found at runtime
-#			"Door1"
-#		],
-#		"bgms": {
-#			"bgm_nick_name": "test_bgm_path"
-#		}
-#	},
-#}
+
 
 func _ready():
 	randomize()
@@ -58,18 +46,6 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	print(
-		"%s\n%s : %s : %s : %s : %s : %s" % \
-		[
-			radios[0].stream.resource_path,
-			0.0 if radios.size() <= 1 else db_to_linear(radios[1].volume_db) * 2,
-			radios,
-			looping,
-			db_to_linear(radios[0].volume_db),
-			radios[0].stream.get_length(),
-			radios[0].get_playback_position(),
-		]
-	)
 	if not looping:
 		return
 	
