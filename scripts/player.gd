@@ -10,8 +10,12 @@ extends CharacterBody2D
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
 
+# Normalisation of effects for later
+@export var effects: Dictionary
+
 var abilities: Dictionary = {
-	"double jump" : false
+	"double_jump" : false,
+	"dashing" : false,
 }
 
 ## Move speed vars
@@ -35,8 +39,7 @@ var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
-var max_jumps = 2
-var can_double_jump = false
+var max_jumps = 1
 
 func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
@@ -114,7 +117,7 @@ func _on_animated_sprite_animation_finished():
 # Handle mushroom consumption (primarily for now)
 func inv_updated(slot_data: SlotData) -> void:
 	if slot_data.item_data.name == "jump_mushroom":
-		can_double_jump = true
+		abilities["double_jump"] = true
 		max_jumps = 2
 
 func _on_hazard_detector_area_entered(area):

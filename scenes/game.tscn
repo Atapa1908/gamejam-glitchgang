@@ -1,15 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=15 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
 [ext_resource type="PackedScene" uid="uid://br51i58wkqq6u" path="res://scenes/door.tscn" id="4_p024i"]
+[ext_resource type="PackedScene" uid="uid://cxpda7bof2fam" path="res://scenes/hazard_area.tscn" id="5_2n33u"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
+[ext_resource type="Texture2D" uid="uid://cpy82rqx8rjp7" path="res://assets/Sprites/Items.png" id="6_wn7di"]
 [ext_resource type="PackedScene" uid="uid://bwp0ggym3npdq" path="res://scenes/enemy.tscn" id="7_jl1v5"]
-[ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
 [ext_resource type="Texture2D" uid="uid://c40nl7fx0wqq4" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
+atlas = ExtResource("6_wn7di")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wktss"]
 texture = ExtResource("10_4by0m")
@@ -982,6 +987,20 @@ scene_door_name = "Door"
 [node name="Marker2D" type="Marker2D" parent="Doors/Door"]
 position = Vector2(71, 3)
 
+[node name="Hazards" type="Node2D" parent="."]
+
+[node name="Arrow" parent="Hazards" instance=ExtResource("5_2n33u")]
+position = Vector2(87, 15)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Hazards/Arrow"]
+rotation = 0.779449
+texture = SubResource("AtlasTexture_cvyiu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hazards/Arrow"]
+polygon = PackedVector2Array(0, -20, -5, -14, -8, 1, 8, 1, 5, -14)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="CanvasLayer"]
@@ -1008,11 +1027,6 @@ position = Vector2(188, -91)
 
 [node name="Enemy2" parent="." instance=ExtResource("7_jl1v5")]
 position = Vector2(-99, -68)
-
-[node name="Hazard" parent="." instance=ExtResource("9_rwpmd")]
-position = Vector2(64, -20)
-
-[node name="Node" type="Node" parent="."]
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dl1r2")

@@ -11,6 +11,8 @@ var default_volume: float = 50.0:
 		default_volume = clamp(val, 0.0, 200.0)
 
 var radios: Array[AudioStreamPlayer]
+var sound_effects: Array[AudioStreamPlayer]
+var max_effects: int = 2
 # Might seem misleading but, it gets set to false when the process function is looping a song
 var looping: bool = true
 var loop_start: float = 0.0
@@ -47,13 +49,6 @@ func _ready():
 	
 
 func _process(delta: float) -> void:
-	#print(
-		#"%s\n%s" % \
-		#[
-			#radios,
-			#default_volume,
-		#]
-	#)
 	if not looping:
 		return
 	
@@ -95,9 +90,6 @@ func fade_in() -> void:
 
 #
 func music_transition(world_name: String, bgm: String = "") -> void:
-	print("===============")
-	print("Changing music.")
-	print("World name -> %s" % world_name)
 	if bgm.is_empty():
 		var bgms: Dictionary = worlds_data[world_name]["bgms"]
 		
@@ -108,8 +100,6 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 		else:
 			bgm = bgms["light"]
 	
-	print("Decided on music path -> %s" % bgm)
-	
 	var position: float = loop_start
 	if radios.size() > 0 and radios[0].get_stream().resource_path == bgm:
 		position = radios[0].get_playback_position()
@@ -117,21 +107,16 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 		for radio in radios:
 			radio.volume_db = linear_to_db(default_volume / 200.0)
 	
-	print("Radio position found -> %s" % position)
-	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
-	print("New radio inst. -> %s" % new_radio)
 	get_tree().create_timer(0.3, true, false, true).timeout.connect(
 		func():
 			for radio in radios:
 				if radio != new_radio:
 					radio.queue_free()
 			radios.clear()
-			print("Clearing all radios.")
 			new_radio.volume_db = linear_to_db(default_volume / 200.0)
 			radios.append(new_radio)
-			print("Readding the new radio -> %s" % new_radio)
 	)
 	
 	# Do transition
@@ -176,6 +161,36 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 	new_radio.seek(position)
 	
 	return new_radio
+
+# Sound effects
+
+func play_effect_path(path: String) -> void:
+	if not path.is_valid_filename() or not path.is_absolute_path():
+		return
+	play_effect(load(path))
+
+func play_rand_effect(effects: Array[AudioStreamWAV]) -> void:
+	if not effects.size():
+		return
+	var temp_effect: AudioStreamWAV = effects[randi() % effects.size()]
+	play_effect(temp_effect)
+
+func play_effect(effect: AudioStreamWAV) -> void:
+	if not effect:
+		return
+	if sound_effects.size() >= max_effects:
+		sound_effects.remove_at(0)
+	var temp_player: AudioStreamPlayer = AudioStreamPlayer.new()
+	temp_player.stream = effect
+	temp_player.volume_db = linear_to_db(1.0)
+	add_child(temp_player)
+	temp_player.play()
+	sound_effects.append(temp_player)
+	temp_player.finished.connect(
+		func():
+			sound_effects.erase(temp_player)
+			temp_player.queue_free()
+	)
 
 # Shadow world transitioning
 

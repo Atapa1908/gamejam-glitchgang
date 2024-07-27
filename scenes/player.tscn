@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
+[ext_resource type="Texture2D" uid="uid://cqdb4rkkt184o" path="res://assets/sprites/Little_Red_Sprite_Sheet_1.png" id="3_8nu85"]
 [ext_resource type="Texture2D" uid="uid://cqcioy03mniic" path="res://assets/Sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="5_1tlxw"]
 [ext_resource type="AudioStream" uid="uid://8hss52n0dtc5" path="res://assets/audio/jump_02.wav" id="6_6ne5w"]
@@ -232,6 +232,8 @@ disabled = true
 stream = ExtResource("6_6ne5w")
 
 [node name="HazardDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
 [node name="HazardCollision" type="CollisionShape2D" parent="HazardDetector"]
 shape = SubResource("CircleShape2D_4d7f3")
