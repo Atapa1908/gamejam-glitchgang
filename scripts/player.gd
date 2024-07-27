@@ -22,6 +22,7 @@ const JUMP_VELOCITY = -400.0
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var can_dash: bool = true
 var dashing: bool = false
 var dash_timer: float
 var last_whole_x_direction: int = 1
@@ -34,17 +35,11 @@ var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
-var max_jumps = 1
-<<<<<<< HEAD:scripts/player/player.gd
+var max_jumps = 2
 var can_double_jump = false
 
-
-=======
-var mushroom_active = false
-var default_mushroom_timer = 10.0
-var mushroom_timer = 0.0
-var consume_mushroom = true
->>>>>>> 3301892dd91e8a3af824f07c8e9e4720165ea297:scripts/player.gd
+func _ready() -> void:
+	inventory_data.new_slot_data.connect(inv_updated)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -68,44 +63,14 @@ func _physics_process(delta):
 		move_and_slide()
 		return
 	
-<<<<<<< HEAD:scripts/player/player.gd
-=======
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		$JumpSound.play()
-		velocity.y = JUMP_VELOCITY
-	
-	# Mushroom Effect timer
-	if mushroom_active:
-		mushroom_timer -= delta
-		if mushroom_timer >= 0.0:
-			mushroom_active = false 
-			max_jumps = 1
-		
->>>>>>> 3301892dd91e8a3af824f07c8e9e4720165ea297:scripts/player.gd
+	if is_on_floor():
+		jump_count = 0
 	
 	# Double Jump
-	if Input.is_action_just_pressed("ui_accept") and jump_count < max_jumps:
+	if Input.is_action_just_pressed("jump") and jump_count < max_jumps:
+		$JumpSound.play()
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-		
-<<<<<<< HEAD:scripts/player/player.gd
-	# Handles mushroom consumption 
-		
-	func on_player_body_entered(body):
-		if body.is_in_group("mushroom"):
-			body.queue_free()
-			can_double_jump = true 
-			max_jumps = 2
-		
-		if is_on_floor():
-			jump_count = 0 
-=======
-	if is_on_floor():
-		jump_count = 0 
->>>>>>> 3301892dd91e8a3af824f07c8e9e4720165ea297:scripts/player.gd
-	
-	consume_jump_mushroom()
 	
 	# Get the input direction to handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
@@ -146,11 +111,11 @@ func _on_animated_sprite_animation_finished():
 		hit_box_area.disabled = true
 		is_attacking = false
 
-func consume_jump_mushroom():
-	mushroom_active = true
-	max_jumps = 2
-	mushroom_timer = 0.0
-
+# Handle mushroom consumption (primarily for now)
+func inv_updated(slot_data: SlotData) -> void:
+	if slot_data.item_data.name == "jump_mushroom":
+		can_double_jump = true
+		max_jumps = 2
 
 func _on_hazard_detector_area_entered(area):
 	current_hp -= 10
