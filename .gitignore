@@ -1,6 +1,5 @@
-<<<<<<< HEAD
 # Godot 4+ specific ignores
-.godot/
+.godot/*
 .import/
 *.import
 export.cfg
@@ -8,7 +7,3 @@ export_presets.cfg
 
 # Imported translations (automatically generated from CSV files)
 *.translation
-=======
-.godot/
-*.import
->>>>>>> main

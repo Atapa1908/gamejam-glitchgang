@@ -3,6 +3,7 @@ extends Resource
 
 signal inv_interact(inv_data: InventoryData, index: int, button: int)
 signal inv_updated(inv_data: InventoryData)
+signal new_slot_data(new_slot: SlotData)
 
 @export_category("Slots")
 @export var data: Array[SlotData]
@@ -52,6 +53,7 @@ func pick_up_slot_data(slot_data: SlotData) -> bool:
 		if data[index] and data[index].can_fully_merge_with(slot_data):
 			data[index].fully_merge_with(slot_data)
 			inv_updated.emit(self)
+			new_slot_data.emit(slot_data)
 			return true
 		
 		if not data[index] and first_null == -1:
@@ -61,6 +63,7 @@ func pick_up_slot_data(slot_data: SlotData) -> bool:
 	if first_null > -1:
 		data[first_null] = slot_data
 		inv_updated.emit(self)
+		new_slot_data.emit(slot_data)
 		return true
 	
 	return false
