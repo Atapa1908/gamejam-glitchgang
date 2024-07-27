@@ -24,3 +24,6 @@ func transition(door_name: String) -> void:
 	var door: Area2D = doors.find_child(door_name)
 	player.global_position = \
 		door.get_node("Marker2D").global_position
+
+func switch_ream() -> void:
+	pass

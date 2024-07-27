@@ -166,7 +166,7 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 func switch_realm(world: Node2D) -> void:
 	# Switchces the 
 	shadow_world = not shadow_world
-	music_transition(worlds_data[world.name.to_snake_case()]["bgms"], world.name.to_snake_case())
+	music_transition(world.name.to_snake_case())
 	# Transition (quick so ~0.5s)
 	# Asks the world to change the tile maps etc
 	world.switch_realm()
