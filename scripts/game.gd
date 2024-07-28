@@ -10,7 +10,8 @@ extends Node2D
 
 func _ready() -> void:
 	SceneManager.fade_in()
-	transition(SceneManager.last_door)
+	if not SceneManager.first_time:
+		transition(SceneManager.last_door)
 	inventory_interface.set_player_inventory_data(player.inventory_data)
 
 func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
@@ -22,6 +23,7 @@ func _on_inventory_interface_drop_slot_data(slot_data: SlotData) -> void:
 	items.add_child(pickup)
 
 func transition(door_name: String) -> void:
+	SceneManager.first_time = false
 	var door: Area2D = doors.find_child(door_name)
 	player.global_position = \
 		door.get_node("Marker2D").global_position

@@ -21,7 +21,7 @@ var abilities: Dictionary = {
 ## Move speed vars
 const WALK_SPEED = 300.0
 const DASH_SPEED = 500.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.

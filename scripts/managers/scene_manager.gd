@@ -1,6 +1,5 @@
 extends Node
 
-const SHADOW_TIME: float = 1.0
 
 #var current_scene: String = ""
 # 
@@ -9,10 +8,11 @@ var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
 var can_shadow: bool = true
+var shadow_time: float = 3.0
 var default_volume: float = 50.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
-
+var first_time: bool = true
 var radios: Array[AudioStreamPlayer]
 var sound_effects: Array[AudioStreamPlayer]
 var max_effects: int = 2
@@ -64,8 +64,6 @@ func _process(delta: float) -> void:
 
 # Transitioning scenes
 func transition(world_name: String, door_name: String) -> void:
-	if not "main_menu" and door_name in worlds_data[world_name]["doors"]:
-		return
 	
 	last_door = door_name
 	
@@ -198,7 +196,6 @@ func play_effect(effect: AudioStreamWAV) -> void:
 # Shadow world transitioning
 
 func switch_realm(world: Node2D) -> void:
-	
 	if not can_shadow:
 		return
 	
@@ -209,4 +206,4 @@ func switch_realm(world: Node2D) -> void:
 	# Asks the world to change the tile maps etc
 	world.switch_realm()
 	can_shadow = false
-	get_tree().create_timer(SHADOW_TIME).timeout.connect(func(): can_shadow = true)
+	get_tree().create_timer(shadow_time).timeout.connect(func(): can_shadow = true)

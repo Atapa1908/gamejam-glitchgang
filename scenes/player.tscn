@@ -205,7 +205,7 @@ script = ExtResource("1_dcxy8")
 inventory_data = ExtResource("2_f8olv")
 
 [node name="Camera" type="Camera2D" parent="."]
-zoom = Vector2(4, 4)
+zoom = Vector2(3, 3)
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_0of37")
