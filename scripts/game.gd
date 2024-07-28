@@ -3,6 +3,7 @@ extends Node2D
 @onready var items: Node2D = $Items
 @onready var player: CharacterBody2D = $Player
 @onready var doors: Node2D = $Doors
+@onready var tilemap: TileMap = $Tilemap
 @onready var inventory_interface: Control = %InventoryInterface
 
 @export var packed_pickup: PackedScene
@@ -25,5 +26,7 @@ func transition(door_name: String) -> void:
 	player.global_position = \
 		door.get_node("Marker2D").global_position
 
-func switch_ream() -> void:
-	pass
+func switch_realm() -> void:
+	var temp: bool = tilemap.is_layer_enabled(0)
+	tilemap.set_layer_enabled(0, not temp)
+	tilemap.set_layer_enabled(1, temp)

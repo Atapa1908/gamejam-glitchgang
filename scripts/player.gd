@@ -59,10 +59,7 @@ func _physics_process(delta):
 	
 	# Actually makes the user dash
 	if dashing and not is_zero_approx(dash_timer):
-		# * 100 turns 0.02 into 2
-		# The clamp turns 2 into 1
-		var dash_direction: int = last_whole_x_direction
-		velocity.x = dash_direction * DASH_SPEED
+		velocity.x = last_whole_x_direction * DASH_SPEED
 		move_and_slide()
 		return
 	
@@ -80,10 +77,12 @@ func _physics_process(delta):
 	
 	# Changes the side the palyer is facing and saves the integer input of the direction
 	if direction != 0:
-		last_whole_x_direction = clamp(direction * 100, -1, 1) <= 0
+		last_whole_x_direction = clamp(direction * 100, -1, 1)
+		print(direction)
+		print(last_whole_x_direction)
 		# NEEDS TO BE CHANGED IF HITBOX IS MOVED IN 2D
-		hit_box.position.x = 8 * last_whole_x_direction
-		animated_sprite.flip_h = last_whole_x_direction
+		hit_box.position.x = 8 * last_whole_x_direction  
+		animated_sprite.flip_h = last_whole_x_direction <= 0
 	
 	# Plays the correct animation
 	if is_on_floor():
@@ -108,6 +107,10 @@ func _physics_process(delta):
 		hit_box_area.disabled = false
 	
 	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("dash"):
+		SceneManager.switch_realm(get_parent())
 
 func _on_animated_sprite_animation_finished():
 	if animated_sprite.animation == "attack_basket":
