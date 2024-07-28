@@ -13,6 +13,9 @@ var default_volume: float = 25.0:
 var radios: Array[AudioStreamPlayer]
 # Might seem misleading but, it gets set to false when the process function is looping a song
 var looping: bool = true
+var loop_start: float = 0.0
+# A value of -1 means that the radio will loop at the end of the song
+var loop_end: float = -1.0
 
 var worlds_data: Dictionary = {
 	"game": {
@@ -33,46 +36,25 @@ var worlds_data: Dictionary = {
 		}
 	},
 }
-#worlds_data["game]["bgms]
-# Template:
-#var worlds_data: Dictionary = {
-#	"world_name": {
-#		"world_scene_path": "scene_path",
-#		"inst_doors": [ # Potential doors to be found at runtime
-#			"Door1"
-#		],
-#		"bgms": {
-#			"bgm_nick_name": "test_bgm_path"
-#		}
-#	},
-#}
+
 
 func _ready():
 	randomize()
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	backdrop.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().current_scene.add_sibling.call_deferred(backdrop)
-	radios.append(
-		create_new_radio(
-			worlds_data["main_menu"]["bgms"].values()[randi() % worlds_data["main_menu"]["bgms"].size()],
-			default_volume
-			)
-		)
 	
 
 func _process(delta: float) -> void:
-	#print(
-		#"%s\n%s : %s : %s" % \
-		#[
-			#radios[0].stream.resource_path,
-			#radios[0].stream.get_length(),
-			#radios[0].get_playback_position(),
-			#0.0 if radios.size() <= 1 else db_to_linear(radios[1].volume_db) * 2
-		#]
-	#)
-	if radios[0].get_playback_position() + delta * 2 >= radios[0].stream.get_length() and looping:
+	if not looping:
+		return
+	
+	if loop_end > 0.0 and radios[0].get_playback_position() + delta * 2 >= loop_end:
 		looping = false
-		loop_song(radios[0].stream.get_length() - radios[0].get_playback_position())
+		loop_song(radios[0].stream.get_length() - loop_end, loop_start)
+	elif radios[0].get_playback_position() + delta * 2 >= radios[0].stream.get_length():
+		looping = false
+		loop_song(radios[0].stream.get_length() - radios[0].get_playback_position(), loop_start)
 
 # Transitioning scenes
 func transition(world_name: String, door_name: String) -> void:
@@ -83,7 +65,7 @@ func transition(world_name: String, door_name: String) -> void:
 	
 	fade_out()
 	
-	music_transition(worlds_data[world_name]["bgms"], world_name)
+	music_transition(world_name)
 	
 	get_tree().change_scene_to_file.call_deferred(worlds_data[world_name]["world_scene_path"])
 	
@@ -104,23 +86,26 @@ func fade_in() -> void:
 # Music
 
 #
-func music_transition(bgms: Dictionary, world_name: String) -> void:
-	var new_bgm: String
-	if shadow_world:
-		new_bgm = bgms["shadow"]
-	elif world_name.contains("menu"):
-		new_bgm = bgms.values()[randi() % bgms.size()]
-	else:
-		new_bgm = bgms["light"]
-	var position: float = 0.0
-	if radios.size() > 0 and radios[0].get_stream().resource_path == new_bgm:
+func music_transition(world_name: String, bgm: String = "") -> void:
+	
+	if bgm.is_empty():
+		var bgms: Dictionary = worlds_data[world_name]["bgms"]
+		
+		if shadow_world:
+			bgm = bgms["shadow"]
+		elif world_name.contains("menu"):
+			bgm = bgms.values()[randi() % bgms.size()]
+		else:
+			bgm = bgms["light"]
+	
+	var position: float = loop_start
+	if radios.size() > 0 and radios[0].get_stream().resource_path == bgm:
 		position = radios[0].get_playback_position()
-	# Create a new radio for transitioning
+		
+		for radio in radios:
+			radio.volume_db = linear_to_db(default_volume / 200.0)
 	
-	for radio in radios:
-		radio.volume_db = linear_to_db(default_volume / 200.0)
-	
-	var new_radio: AudioStreamPlayer = create_new_radio(new_bgm, default_volume / 2, position)
+	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
 	
 	get_tree().create_timer(0.3, true, false, true).timeout.connect(
@@ -136,22 +121,23 @@ func music_transition(bgms: Dictionary, world_name: String) -> void:
 	# Do transition
 	
 
-func loop_song(time_left: float) -> void:
+func loop_song(time_left: float, start_time: float = 0.0) -> void:
 	radios.append(
 		create_new_radio(
 			radios[0].stream.resource_path,
-			db_to_linear(radios[0].volume_db) / 2
+			db_to_linear(radios[0].volume_db) / 2,
+			start_time
 		)
 	)
 	
-	get_tree().create_timer(time_left, true, false, true).timeout.connect(
+	get_tree().create_timer(0.02, true, false, true).timeout.connect(
 		func():
 			radios[1].volume_db = radios[0].volume_db
 			radios[0].queue_free()
 			radios.remove_at(0)
+			looping = true
 	)
 	
-	looping = true
 
 func clear_radios() -> void:
 	for radio in radios:

@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	SceneManager.music_transition("main_menu")
+
 func _on_start_pressed() -> void:
 	# Call the scene manager and transition to game scene
 	SceneManager.transition("game", "Door")
