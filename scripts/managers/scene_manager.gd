@@ -1,11 +1,14 @@
 extends Node
 
+const SHADOW_TIME: float = 1.0
+
 #var current_scene: String = ""
 # 
 var wait_time: float = 1.5
 var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
+var can_shadow: bool = true
 var default_volume: float = 50.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
@@ -195,9 +198,15 @@ func play_effect(effect: AudioStreamWAV) -> void:
 # Shadow world transitioning
 
 func switch_realm(world: Node2D) -> void:
+	
+	if not can_shadow:
+		return
+	
 	# Switchces the 
 	shadow_world = not shadow_world
 	music_transition(world.name.to_snake_case())
 	# Transition (quick so ~0.5s)
 	# Asks the world to change the tile maps etc
 	world.switch_realm()
+	can_shadow = false
+	get_tree().create_timer(SHADOW_TIME).timeout.connect(func(): can_shadow = true)
