@@ -32,3 +32,8 @@ func switch_realm() -> void:
 	var temp: bool = tilemap.is_layer_enabled(0)
 	tilemap.set_layer_enabled(0, not temp)
 	tilemap.set_layer_enabled(1, temp)
+
+
+func _on_crystal_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		SceneManager.can_shadow = true

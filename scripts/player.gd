@@ -16,6 +16,8 @@ extends CharacterBody2D
 var abilities: Dictionary = {
 	"double_jump" : false,
 	"dashing" : false,
+	"sliding" : false,
+	"gliding" : false,
 }
 
 ## Move speed vars
