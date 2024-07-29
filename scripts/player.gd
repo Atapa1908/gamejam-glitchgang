@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var hit_box: Area2D = $HitBox
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
+@onready var Projectile = preload("res://scenes/flask.tscn")
+@onready var game = get_node("/root/Game")
 
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
@@ -15,9 +17,9 @@ var abilities: Dictionary = {
 }
 
 ## Move speed vars
-const WALK_SPEED = 300.0
-const DASH_SPEED = 500.0
-const JUMP_VELOCITY = -400.0
+const WALK_SPEED = 200.0
+const DASH_SPEED = 350.0
+const JUMP_VELOCITY = -300.0
 
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -77,10 +79,10 @@ func _physics_process(delta):
 	
 	# Changes the side the palyer is facing and saves the integer input of the direction
 	if direction != 0:
-		last_whole_x_direction = clamp(direction * 100, -1, 1) <= 0
+		last_whole_x_direction = clamp(direction * 100, -1, 1)
 		# NEEDS TO BE CHANGED IF HITBOX IS MOVED IN 2D
 		hit_box.position.x = 8 * last_whole_x_direction
-		animated_sprite.flip_h = last_whole_x_direction
+		animated_sprite.flip_h = last_whole_x_direction <= 0
 	
 	# Plays the correct animation
 	if is_on_floor():
@@ -104,7 +106,16 @@ func _physics_process(delta):
 		is_attacking = true
 		hit_box_area.disabled = false
 	
+	if Input.is_action_just_pressed("interact"):
+		ranged_attack()
+	
 	move_and_slide()
+
+func ranged_attack():
+	var projectile = Projectile.instantiate()
+	game.add_child(projectile)
+	projectile.position = position + Vector2(10 * last_whole_x_direction, -5)
+	projectile.launch(last_whole_x_direction)
 
 func _on_animated_sprite_animation_finished():
 	if animated_sprite.animation == "attack_basket":
