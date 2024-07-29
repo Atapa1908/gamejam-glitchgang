@@ -13,6 +13,12 @@ extends CharacterBody2D
 # Normalisation of effects for later
 @export var effects: Dictionary
 
+
+## Move speed vars
+const WALK_SPEED = 200.0
+const DASH_SPEED = 350.0
+const JUMP_VELOCITY = -300.0
+
 var abilities: Dictionary = {
 	"double_jump" : false,
 	"dashing" : false,
@@ -20,10 +26,7 @@ var abilities: Dictionary = {
 	"gliding" : false,
 }
 
-## Move speed vars
-const WALK_SPEED = 300.0
-const DASH_SPEED = 500.0
-const JUMP_VELOCITY = -300.0
+var fruit_count: int = 0
 
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -80,8 +83,6 @@ func _physics_process(delta):
 	# Changes the side the palyer is facing and saves the integer input of the direction
 	if direction != 0:
 		last_whole_x_direction = clamp(direction * 100, -1, 1)
-		print(direction)
-		print(last_whole_x_direction)
 		# NEEDS TO BE CHANGED IF HITBOX IS MOVED IN 2D
 		hit_box.position.x = 8 * last_whole_x_direction  
 		animated_sprite.flip_h = last_whole_x_direction <= 0

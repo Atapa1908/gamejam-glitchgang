@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=17 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 [ext_resource type="Texture2D" uid="uid://cpy82rqx8rjp7" path="res://assets/Sprites/Items.png" id="6_wn7di"]
 [ext_resource type="Texture2D" uid="uid://4rpqy2o4v7l0" path="res://assets/Sprites/crys3.png" id="8_efiuv"]
+[ext_resource type="PackedScene" uid="uid://b1rn2rj504wqh" path="res://scenes/cauldron.tscn" id="9_xlqup"]
 [ext_resource type="Texture2D" uid="uid://c40nl7fx0wqq4" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
@@ -1022,6 +1023,9 @@ texture = ExtResource("8_efiuv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Crystal"]
 polygon = PackedVector2Array(-16, 29, -16, 18, -8, 4, -6, -21, 1, -28, 9, -21, 11, 4, 31, 23, 31, 29)
+
+[node name="Cauldron" parent="." instance=ExtResource("9_xlqup")]
+position = Vector2(578, -16)
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dl1r2")
