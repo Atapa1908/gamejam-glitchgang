@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=23 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
@@ -11,9 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
 [ext_resource type="Texture2D" uid="uid://cpy82rqx8rjp7" path="res://assets/Sprites/Items.png" id="6_wn7di"]
 [ext_resource type="Texture2D" uid="uid://4rpqy2o4v7l0" path="res://assets/Sprites/crys3.png" id="8_efiuv"]
+[ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
 [ext_resource type="PackedScene" uid="uid://b1rn2rj504wqh" path="res://scenes/cauldron.tscn" id="9_xlqup"]
 [ext_resource type="Texture2D" uid="uid://c40nl7fx0wqq4" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
-[ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
+[ext_resource type="Resource" uid="uid://cyxp4dsp2yn23" path="res://resources/inventory_data/fruit/berry.tres" id="10_hcyoy"]
 [ext_resource type="PackedScene" uid="uid://dfuksb22mswe5" path="res://scenes/platform.tscn" id="10_ndkeo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
@@ -972,6 +973,21 @@ terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0, 0.678431, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_wktss")
 
+[sub_resource type="Animation" id="Animation_g27vc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-236, -73)]
+}
+
 [sub_resource type="Animation" id="Animation_dmq2w"]
 resource_name = "move"
 loop_mode = 2
@@ -986,21 +1002,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-236, -73), Vector2(-190, -73)]
-}
-
-[sub_resource type="Animation" id="Animation_g27vc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-236, -73)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p8mqi"]
@@ -1065,6 +1066,8 @@ polygon = PackedVector2Array(-16, 29, -16, 18, -8, 4, -6, -21, 1, -28, 9, -21, 1
 
 [node name="Cauldron" parent="." instance=ExtResource("9_xlqup")]
 position = Vector2(578, -16)
+ability_name = "double_jump"
+fruit = ExtResource("10_hcyoy")
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_dl1r2")
@@ -1096,8 +1099,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
-[connection signal="body_entered" from="Crystal" to="." method="_on_crystal_body_entered"]
-=======
 [node name="Hazard" parent="." instance=ExtResource("9_rwpmd")]
 position = Vector2(64, -20)
 
@@ -1109,5 +1110,7 @@ libraries = {
 "": SubResource("AnimationLibrary_p8mqi")
 }
 autoplay = "move"
+
+[connection signal="body_entered" from="Crystal" to="." method="_on_crystal_body_entered"]
 [connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]

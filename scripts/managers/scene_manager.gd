@@ -171,7 +171,7 @@ func play_effect_path(path: String) -> void:
 	play_effect(load(path))
 
 func play_rand_effect(effects: Array[AudioStreamWAV]) -> void:
-	if not effects.size():
+	if effects.size() <= 0:
 		return
 	var temp_effect: AudioStreamWAV = effects[randi() % effects.size()]
 	play_effect(temp_effect)
