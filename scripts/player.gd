@@ -22,8 +22,8 @@ const DASH_SPEED = 350.0
 const JUMP_VELOCITY = -300.0
 
 var abilities: Dictionary = {
-	"double_jump" : false,
-	"dashing" : false,
+	"double_jump" : true,
+	"dashing" : true,
 	"sliding" : false,
 	"gliding" : false,
 }
@@ -44,7 +44,7 @@ var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
-var max_jumps = 1
+var max_jumps = 2
 
 func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
@@ -111,11 +111,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		ranged_attack()
+		
+	if Input.is_action_just_pressed("glide"):
+		velocity.y /= 8
+		gravity = 98
+
+	
+	if Input.is_action_just_released("glide") or is_on_floor():
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("switch_realm"):
 		SceneManager.switch_realm(get_parent())
 
 func ranged_attack():

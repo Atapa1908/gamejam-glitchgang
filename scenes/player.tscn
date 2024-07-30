@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_dcxy8"]
 [ext_resource type="Resource" uid="uid://fs4pmwxb0qbd" path="res://resources/inventory_data/inventory/player_test.tres" id="2_f8olv"]
-[ext_resource type="Texture2D" uid="uid://cqcioy03mniic" path="res://assets/Sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
+[ext_resource type="Texture2D" uid="uid://dnnuk154vp1le" path="res://assets/Sprites/Little_Red_Sheet_All.png" id="3_m6nn3"]
 [ext_resource type="Script" path="res://scripts/hitbox.gd" id="5_1tlxw"]
-[ext_resource type="AudioStream" uid="uid://8hss52n0dtc5" path="res://assets/audio/jump_02.wav" id="6_6ne5w"]
+[ext_resource type="AudioStream" uid="uid://bwccfss7wuyyg" path="res://assets/audio/jump_02.wav" id="6_6ne5w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1bb3r"]
 atlas = ExtResource("3_m6nn3")

@@ -9,7 +9,7 @@ var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
 var can_shadow: bool = false
 var shadow_time: float = 3.0
-var default_volume: float = 50.0:
+var default_volume: float = 00.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
 var first_time: bool = true
