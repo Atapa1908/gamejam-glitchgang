@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://4rpqy2o4v7l0" path="res://assets/Sprites/crys3.png" id="8_efiuv"]
 [ext_resource type="PackedScene" uid="uid://b1rn2rj504wqh" path="res://scenes/cauldron.tscn" id="9_xlqup"]
 [ext_resource type="Texture2D" uid="uid://c40nl7fx0wqq4" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
+[ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
+[ext_resource type="PackedScene" uid="uid://dfuksb22mswe5" path="res://scenes/platform.tscn" id="10_ndkeo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
 atlas = ExtResource("6_wn7di")
@@ -970,6 +972,43 @@ terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0, 0.678431, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_wktss")
 
+[sub_resource type="Animation" id="Animation_dmq2w"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-236, -73), Vector2(-190, -73)]
+}
+
+[sub_resource type="Animation" id="Animation_g27vc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-236, -73)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p8mqi"]
+_data = {
+"RESET": SubResource("Animation_g27vc"),
+"move": SubResource("Animation_dmq2w")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l5um2")
 packed_pickup = ExtResource("2_8wd3k")
@@ -1058,5 +1097,17 @@ visible = false
 layout_mode = 0
 
 [connection signal="body_entered" from="Crystal" to="." method="_on_crystal_body_entered"]
+=======
+[node name="Hazard" parent="." instance=ExtResource("9_rwpmd")]
+position = Vector2(64, -20)
+
+[node name="Platform" parent="." instance=ExtResource("10_ndkeo")]
+position = Vector2(-236, -73)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform"]
+libraries = {
+"": SubResource("AnimationLibrary_p8mqi")
+}
+autoplay = "move"
 [connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]

@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var hit_box: Area2D = $HitBox
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
+@onready var Projectile = preload("res://scenes/flask.tscn")
+@onready var game = get_node("/root/Game")
 
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
@@ -82,7 +84,7 @@ func _physics_process(delta):
 	if direction != 0:
 		last_whole_x_direction = clamp(direction * 100, -1, 1)
 		# NEEDS TO BE CHANGED IF HITBOX IS MOVED IN 2D
-		hit_box.position.x = 8 * last_whole_x_direction  
+		hit_box.position.x = 8 * last_whole_x_direction
 		animated_sprite.flip_h = last_whole_x_direction <= 0
 	
 	# Plays the correct animation
@@ -107,11 +109,20 @@ func _physics_process(delta):
 		is_attacking = true
 		hit_box_area.disabled = false
 	
+	if Input.is_action_just_pressed("interact"):
+		ranged_attack()
+	
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("dash"):
 		SceneManager.switch_realm(get_parent())
+
+func ranged_attack():
+	var projectile = Projectile.instantiate()
+	game.add_child(projectile)
+	projectile.position = position + Vector2(10 * last_whole_x_direction, -5)
+	projectile.launch(last_whole_x_direction)
 
 func _on_animated_sprite_animation_finished():
 	if animated_sprite.animation == "attack_basket":
