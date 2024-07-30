@@ -50,7 +50,6 @@ func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
 
 func _physics_process(delta):
-	print(abilities["double_jump"])
 	# Add the gravity.
 	velocity.y += gravity * delta
 	# Decrement dash timer
@@ -59,7 +58,8 @@ func _physics_process(delta):
 	
 	# Chacks to see if the user wants to and can dash
 	if is_zero_approx(dash_timer) and \
-		Input.is_action_just_pressed("dash"):
+		Input.is_action_just_pressed("dash") and \
+		abilities["dashing"]:
 		dashing = true
 		dash_timer = DEFAULT_DASH_TIME
 	
@@ -145,6 +145,9 @@ func add_ability(ability: String) -> void:
 		return
 	
 	abilities[ability] = true
+	
+	if ability == "double_jump":
+		max_jumps = 2
 	
 	# Pause motion, hide player sprite and play new spite frames for a short time
 	

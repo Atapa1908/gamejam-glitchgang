@@ -1,6 +1,5 @@
 extends Node
 
-
 #var current_scene: String = ""
 # 
 var wait_time: float = 1.5
