@@ -1,16 +1,21 @@
 extends Node
 
+
 #var current_scene: String = ""
 # 
 var wait_time: float = 1.5
 var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
-var default_volume: float = 25.0:
+var can_shadow: bool = false
+var shadow_time: float = 3.0
+var default_volume: float = 50.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
-
+var first_time: bool = true
 var radios: Array[AudioStreamPlayer]
+var sound_effects: Array[AudioStreamPlayer]
+var max_effects: int = 2
 # Might seem misleading but, it gets set to false when the process function is looping a song
 var looping: bool = true
 var loop_start: float = 0.0
@@ -43,6 +48,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	backdrop.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().current_scene.add_sibling.call_deferred(backdrop)
+	music_transition("main_menu")
 	
 
 func _process(delta: float) -> void:
@@ -58,8 +64,6 @@ func _process(delta: float) -> void:
 
 # Transitioning scenes
 func transition(world_name: String, door_name: String) -> void:
-	if not "main_menu" and door_name in worlds_data[world_name]["doors"]:
-		return
 	
 	last_door = door_name
 	
@@ -87,11 +91,10 @@ func fade_in() -> void:
 
 #
 func music_transition(world_name: String, bgm: String = "") -> void:
-	
 	if bgm.is_empty():
 		var bgms: Dictionary = worlds_data[world_name]["bgms"]
 		
-		if shadow_world:
+		if shadow_world and bgms.has("shadow"):
 			bgm = bgms["shadow"]
 		elif world_name.contains("menu"):
 			bgm = bgms.values()[randi() % bgms.size()]
@@ -107,7 +110,6 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
-	
 	get_tree().create_timer(0.3, true, false, true).timeout.connect(
 		func():
 			for radio in radios:
@@ -161,12 +163,47 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 	
 	return new_radio
 
+# Sound effects
+
+func play_effect_path(path: String) -> void:
+	if not path.is_valid_filename() or not path.is_absolute_path():
+		return
+	play_effect(load(path))
+
+func play_rand_effect(effects: Array[AudioStreamWAV]) -> void:
+	if not effects.size():
+		return
+	var temp_effect: AudioStreamWAV = effects[randi() % effects.size()]
+	play_effect(temp_effect)
+
+func play_effect(effect: AudioStreamWAV) -> void:
+	if not effect:
+		return
+	if sound_effects.size() >= max_effects:
+		sound_effects.remove_at(0)
+	var temp_player: AudioStreamPlayer = AudioStreamPlayer.new()
+	temp_player.stream = effect
+	temp_player.volume_db = linear_to_db(1.0)
+	add_child(temp_player)
+	temp_player.play()
+	sound_effects.append(temp_player)
+	temp_player.finished.connect(
+		func():
+			sound_effects.erase(temp_player)
+			temp_player.queue_free()
+	)
+
 # Shadow world transitioning
 
 func switch_realm(world: Node2D) -> void:
+	if not can_shadow:
+		return
+	
 	# Switchces the 
 	shadow_world = not shadow_world
-	music_transition(worlds_data[world.name.to_snake_case()]["bgms"], world.name.to_snake_case())
+	music_transition(world.name.to_snake_case())
 	# Transition (quick so ~0.5s)
 	# Asks the world to change the tile maps etc
 	world.switch_realm()
+	can_shadow = false
+	get_tree().create_timer(shadow_time).timeout.connect(func(): can_shadow = true)

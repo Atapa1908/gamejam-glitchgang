@@ -12,14 +12,21 @@ extends CharacterBody2D
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
 
-var abilities: Dictionary = {
-	"double jump" : false
-}
+# Normalisation of effects for later
+@export var effects: Dictionary
+
 
 ## Move speed vars
 const WALK_SPEED = 200.0
 const DASH_SPEED = 350.0
 const JUMP_VELOCITY = -300.0
+
+var abilities: Dictionary = {
+	"double_jump" : false,
+	"dashing" : false,
+	"sliding" : false,
+	"gliding" : false,
+}
 
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -37,8 +44,7 @@ var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
-var max_jumps = 2
-var can_double_jump = false
+var max_jumps = 1
 
 func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
@@ -58,10 +64,7 @@ func _physics_process(delta):
 	
 	# Actually makes the user dash
 	if dashing and not is_zero_approx(dash_timer):
-		# * 100 turns 0.02 into 2
-		# The clamp turns 2 into 1
-		var dash_direction: int = last_whole_x_direction
-		velocity.x = dash_direction * DASH_SPEED
+		velocity.x = last_whole_x_direction * DASH_SPEED
 		move_and_slide()
 		return
 	
@@ -111,6 +114,10 @@ func _physics_process(delta):
 	
 	move_and_slide()
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("dash"):
+		SceneManager.switch_realm(get_parent())
+
 func ranged_attack():
 	var projectile = Projectile.instantiate()
 	game.add_child(projectile)
@@ -125,7 +132,7 @@ func _on_animated_sprite_animation_finished():
 # Handle mushroom consumption (primarily for now)
 func inv_updated(slot_data: SlotData) -> void:
 	if slot_data.item_data.name == "jump_mushroom":
-		can_double_jump = true
+		abilities["double_jump"] = true
 		max_jumps = 2
 
 func _on_hazard_detector_area_entered(area):
