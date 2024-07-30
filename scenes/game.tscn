@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bvcrlbgs462p5"]
+[gd_scene load_steps=25 format=3 uid="uid://bvcrlbgs462p5"]
 
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
@@ -20,6 +20,8 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
 atlas = ExtResource("6_wn7di")
 region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_knvui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wktss"]
 texture = ExtResource("10_4by0m")
@@ -964,14 +966,54 @@ texture = ExtResource("10_4by0m")
 7:11/0/terrains_peering_bit/top_side = 1
 7:11/0/terrains_peering_bit/top_right_corner = 1
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pawur"]
+texture = ExtResource("10_4by0m")
+texture_region_size = Vector2i(16, 8)
+0:6/0 = 0
+0:6/0/terrain_set = 0
+0:6/0/terrain = 2
+0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:6/0/physics_layer_0/angular_velocity = 0.0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+0:6/0/physics_layer_0/polygon_0/one_way = true
+0:6/0/terrains_peering_bit/right_side = 2
+1:6/0 = 0
+1:6/0/terrain_set = 0
+1:6/0/terrain = 2
+1:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:6/0/physics_layer_0/angular_velocity = 0.0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+1:6/0/physics_layer_0/polygon_0/one_way = true
+1:6/0/terrains_peering_bit/right_side = 2
+1:6/0/terrains_peering_bit/left_side = 2
+2:6/0 = 0
+2:6/0/terrain_set = 0
+2:6/0/terrain = 2
+2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:6/0/physics_layer_0/angular_velocity = 0.0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+2:6/0/physics_layer_0/polygon_0/one_way = true
+2:6/0/terrains_peering_bit/left_side = 2
+3:6/0 = 0
+3:6/0/terrain_set = 0
+3:6/0/terrain = 2
+3:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:6/0/physics_layer_0/angular_velocity = 0.0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
+3:6/0/physics_layer_0/polygon_0/one_way = true
+
 [sub_resource type="TileSet" id="TileSet_dl1r2"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_knvui")
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.866667, 0, 0, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0, 0.678431, 0, 1)
+terrain_set_0/terrain_2/name = "One-Way-Forest"
+terrain_set_0/terrain_2/color = Color(0.223529, 0.403922, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_wktss")
+sources/1 = SubResource("TileSetAtlasSource_pawur")
 
 [sub_resource type="Animation" id="Animation_g27vc"]
 length = 0.001

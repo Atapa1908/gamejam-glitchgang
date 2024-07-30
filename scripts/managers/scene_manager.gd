@@ -9,7 +9,7 @@ var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
 var can_shadow: bool = false
 var shadow_time: float = 3.0
-var default_volume: float = 50.0:
+var default_volume: float = 0.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
 var first_time: bool = true
@@ -106,7 +106,7 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 		position = radios[0].get_playback_position()
 		
 		for radio in radios:
-			radio.volume_db = linear_to_db(default_volume / 200.0)
+			radio.volume_db = linear_to_db((default_volume / 2.0) / 200.0)
 	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
@@ -127,7 +127,7 @@ func loop_song(time_left: float, start_time: float = 0.0) -> void:
 	radios.append(
 		create_new_radio(
 			radios[0].stream.resource_path,
-			db_to_linear(radios[0].volume_db) / 2,
+			default_volume / 2,
 			start_time
 		)
 	)

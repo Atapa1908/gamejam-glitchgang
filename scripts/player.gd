@@ -17,7 +17,7 @@ extends CharacterBody2D
 
 
 ## Move speed vars
-const WALK_SPEED = 200.0
+const WALK_SPEED = 150.0
 const DASH_SPEED = 350.0
 const JUMP_VELOCITY = -300.0
 
@@ -50,6 +50,7 @@ func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
 
 func _physics_process(delta):
+	print(abilities["double_jump"])
 	# Add the gravity.
 	velocity.y += gravity * delta
 	# Decrement dash timer

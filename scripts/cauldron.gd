@@ -22,18 +22,23 @@ func _on_body_entered(body: Node2D) -> void:
 			continue
 		if not slot.item_data is Fruit:
 			continue
-			fruit_counter += slot.quantity
-			fruits.append(slot)
+		fruit_counter += slot.quantity
+		fruits.append(slot)
+	
+	print(fruit_counter)
 	
 	if fruit_counter < 3:
 		return
 	
-	var first: bool = false
+	var first: bool = true
 	for slot in fruits:
-		if fruit_counter <= 0 and first:
-				if slot.quantity >= fruit_counter:
-					temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter)
-				else:
-					temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter % slot.quantity)
-		
+		if fruit_counter >= 0 and first:
+			if slot.quantity >= fruit_counter:
+				temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter)
+				print("Added item.")
+				first = false
+			else:
+				temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter % slot.quantity)
+				print("Added item.")
+				first = false
 	
