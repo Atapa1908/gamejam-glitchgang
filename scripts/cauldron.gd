@@ -12,6 +12,5 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if body.fruit_cound >= 3:
-			body.fruit_count -= 3
-			body.abilities[ability_name] = true
+		var temp_inv: InventoryData = body.inventory_data
+		
