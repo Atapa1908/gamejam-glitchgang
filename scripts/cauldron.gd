@@ -1,16 +1,39 @@
 extends Area2D
 
 @export var ability_name: String = ""
-@export var sprite_path: String = ""
+@export var fruit: Fruit
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
-	if sprite_path.is_empty():
+	if fruit:
 		return
-	sprite_2d.texture = load(sprite_path)
+	sprite_2d.texture = fruit.texture
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		var temp_inv: InventoryData = body.inventory_data
+	if not body.is_in_group("player"):
+		return
+	
+	var temp_inv: InventoryData = body.inventory_data
+	var fruit_counter: int = 0
+	var fruits: Array[SlotData]
+	for slot in temp_inv.data:
+		if not slot:
+			continue
+		if not slot.item_data is Fruit:
+			continue
+			fruit_counter += slot.quantity
+			fruits.append(slot)
+	
+	if fruit_counter < 3:
+		return
+	
+	var first: bool = false
+	for slot in fruits:
+		if fruit_counter <= 0 and first:
+				if slot.quantity >= fruit_counter:
+					temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter)
+				else:
+					temp_inv.remove_slot_data(temp_inv.data.find(slot), fruit_counter % slot.quantity)
 		
+	

@@ -13,7 +13,7 @@ extends CharacterBody2D
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
 
 # Normalisation of effects for later
-@export var effects: Dictionary
+@export var effects: Dictionary = {}
 
 
 ## Move speed vars
@@ -138,3 +138,16 @@ func inv_updated(slot_data: SlotData) -> void:
 func _on_hazard_detector_area_entered(area):
 	current_hp -= 10
 	print(current_hp)
+
+func add_ability(ability: String) -> void:
+	if not abilities.has(ability):
+		return
+	
+	abilities[ability] = true
+	
+	# Pause motion, hide player sprite and play new spite frames for a short time
+	
+	# Play sound effect through scene manager
+	
+	SceneManager.play_effect_path("res://assets/audio/collect_thing.wav")
+	
