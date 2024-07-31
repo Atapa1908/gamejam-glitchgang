@@ -1105,7 +1105,7 @@ slot_data = SubResource("Resource_xxo6q")
 
 [node name="Door" parent="Doors" instance=ExtResource("4_p024i")]
 position = Vector2(207, -616)
-scene_name = "main_menu"
+scene_name = "boss_one"
 scene_door_name = "Door"
 
 [node name="Marker2D" type="Marker2D" parent="Doors/Door"]
