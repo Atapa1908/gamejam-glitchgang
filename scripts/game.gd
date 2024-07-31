@@ -4,6 +4,7 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 @onready var doors: Node2D = $Doors
 @onready var tilemap: TileMap = $Tilemap
+@onready var enemies: Node2D = $Enemies
 @onready var inventory_interface: Control = %InventoryInterface
 
 @export var packed_pickup: PackedScene
@@ -32,8 +33,16 @@ func switch_realm() -> void:
 	var temp: bool = tilemap.is_layer_enabled(0)
 	tilemap.set_layer_enabled(0, not temp)
 	tilemap.set_layer_enabled(1, temp)
+	for child in enemies.get_children():
+		child.visible = not temp
+		child.collision_layer = 0 if temp else 1
 
 
 func _on_crystal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		SceneManager.can_shadow = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		get_tree().reload_current_scene()

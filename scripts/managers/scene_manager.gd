@@ -2,7 +2,7 @@ extends Node
 
 #var current_scene: String = ""
 # 
-var wait_time: float = 1.5
+var wait_time: float = 0.0
 var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
@@ -34,16 +34,17 @@ var worlds_data: Dictionary = {
 	},
 	"boss_one": {
 		"world_scene_path": "res://scenes/boss_one.tscn",
-
 		"inst_doors": [ # Potential doors to be found at runtime
 			"Door",
-
+		],
 		"bgms": {
 			"intro": "res://assets/BGM/Boss_01_intro.wav",
 			"main": "res://assets/BGM/Boss_01_main_loop.wav",
+		}
+	},
 	"game_2": {
 		"world_scene_path": "res://scenes/game_2.tscn",
-		"inst_doors": [ # Potential doors to be found at runtime
+		"inst_doors": [
 			"Door",
 		],
 		"bgms": {
@@ -66,6 +67,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	backdrop.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().current_scene.add_sibling.call_deferred(backdrop)
+	print(backdrop)
 	music_transition("main_menu")
 	
 
@@ -91,13 +93,12 @@ func transition(world_name: String, door_name: String) -> void:
 	
 	get_tree().change_scene_to_file.call_deferred(worlds_data[world_name]["world_scene_path"])
 	
-	fade_in()
-	
 
 func fade_out() -> void:
 	backdrop.show()
 	get_tree().paused = true
 	Engine.time_scale = 0.0
+	
 
 func fade_in() -> void:
 	await get_tree().create_timer(wait_time, true, false, true).timeout
@@ -123,7 +124,7 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 	if radios.size() > 0:
 		for radio in radios:
 			radio.volume_db = linear_to_db((default_volume / 2.0) / 200.0)
-	if radios[0].get_stream().resource_path == bgm:
+	if radios.size() > 0 and radios[0].get_stream().resource_path == bgm:
 		position = radios[0].get_playback_position()
 	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)

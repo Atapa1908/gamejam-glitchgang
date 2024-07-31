@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var collision_shape: CollisionShape2D = $CollisionShape
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite
 @onready var hit_box: Area2D = $HitBox
+@onready var progress_bar: ProgressBar = $ProgressBar
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
 @onready var Projectile = preload("res://scenes/flask.tscn")
@@ -22,15 +23,10 @@ const DASH_SPEED = 350.0
 const JUMP_VELOCITY = -300.0
 
 var abilities: Dictionary = {
-<<<<<<< HEAD
 	"double_jump" : false,
 	"dash" : false,
-=======
-	"double_jump" : true,
-	"dashing" : true,
->>>>>>> main
 	"sliding" : false,
-	"gliding" : true,
+	"gliding" : false,
 }
 
 var hit_tween: Tween
@@ -122,7 +118,7 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("interact"):
 		ranged_attack()
 		
-	if Input.is_action_just_pressed("glide"):
+	if Input.is_action_just_pressed("glide") and abilities["gliding"]:
 		velocity.y /= 8
 		gravity = 98
 
@@ -162,9 +158,14 @@ func _on_hazard_detector_area_entered(area):
 		
 	hit_tween = create_tween()
 	hit_tween.tween_property(animated_sprite, "modulate", Color.RED, 0.25).set_trans(Tween.TRANS_LINEAR)
-	hit_tween.tween_property(animated_sprite, "modulate", Color.WHITE, 0.25).set_trans(Tween.TRANS_LINEAR)
 	velocity = Vector2(1000 * -last_whole_x_direction, -150)
+	if current_hp > 0.0:
+		hit_tween.tween_property(animated_sprite, "modulate", Color.WHITE, 0.25).set_trans(Tween.TRANS_LINEAR)
 	
+	progress_bar.value = current_hp
+	
+	if current_hp <= 0.0:
+		get_tree().reload_current_scene()
 	print(current_hp)
 
 func add_ability(ability: String) -> void:
@@ -175,7 +176,6 @@ func add_ability(ability: String) -> void:
 	
 	if ability == "double_jump":
 		max_jumps = 2
-	print("%s : %s" % [ability, abilities[ability]])
 	# Pause motion, hide player sprite and play new spite frames for a short time
 	
 	# Play sound effect through scene manager

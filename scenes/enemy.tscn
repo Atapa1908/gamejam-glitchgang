@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bwp0ggym3npdq"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_vua1r"]
-[ext_resource type="Texture2D" uid="uid://b1arb6njxh4uj" path="res://assets/Sprites/flying spider.png" id="2_gq71t"]
+[ext_resource type="Texture2D" uid="uid://b8qudhdb6mpro" path="res://assets/Sprites/flying spider.png" id="2_gq71t"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_y8bsj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w6f24"]

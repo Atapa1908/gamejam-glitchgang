@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="Consumable" load_steps=8 format=3 uid="uid://dtldeacldsf6j"]
 
 [ext_resource type="Script" path="res://resource scripts/inventory/consumable/consumable.gd" id="1_djnnc"]
-[ext_resource type="Texture2D" uid="uid://dyx1xx3enbaf6" path="res://assets/sprites/Items.png" id="2_h4p2u"]
-[ext_resource type="AudioStream" uid="uid://4qnx2vcgxi8s" path="res://assets/audio/eat_fruit_01.wav" id="2_opesj"]
-[ext_resource type="AudioStream" uid="uid://18rjh70gtn0b" path="res://assets/audio/eat_fruit_02.wav" id="3_x74tm"]
+[ext_resource type="Texture2D" uid="uid://cpy82rqx8rjp7" path="res://assets/Sprites/Items.png" id="2_h4p2u"]
+[ext_resource type="AudioStream" uid="uid://bxokhknwy6kkw" path="res://assets/audio/eat_fruit_01.wav" id="2_opesj"]
+[ext_resource type="AudioStream" uid="uid://crhm6wl64l6sw" path="res://assets/audio/eat_fruit_02.wav" id="3_x74tm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v28nd"]
 atlas = ExtResource("2_h4p2u")

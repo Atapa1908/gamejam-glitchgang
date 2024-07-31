@@ -1,7 +1,18 @@
-[gd_resource type="Resource" script_class="Fruit" load_steps=3 format=3 uid="uid://cyxp4dsp2yn23"]
+[gd_resource type="Resource" script_class="Fruit" load_steps=4 format=3 uid="uid://cyxp4dsp2yn23"]
 
 [ext_resource type="Script" path="res://resource scripts/inventory/fruit/fruit.gd" id="1_vxvbp"]
 [ext_resource type="Texture2D" uid="uid://eheqakt7wvot" path="res://assets/Sprites/Raspberry_fruit-1.png" id="2_x6xrp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcy4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x6xrp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_vxvbp")
@@ -9,3 +20,4 @@ name = "Berry"
 description = "Used as a catalyst for alchemic reactions."
 stackable = true
 texture = ExtResource("2_x6xrp")
+sprite_frames = SubResource("SpriteFrames_qcy4q")
