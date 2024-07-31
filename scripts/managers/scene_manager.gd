@@ -8,7 +8,7 @@ var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
 var can_shadow: bool = false
 var shadow_time: float = 3.0
-var default_volume: float = 0.0:
+var default_volume: float = 50.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
 var first_time: bool = true
@@ -115,10 +115,15 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 		
 		if shadow_world and bgms.has("shadow"):
 			bgm = bgms["shadow"]
-		elif world_name.contains("menu"):
-			bgm = bgms.values()[randi() % bgms.size()]
-		else:
+		elif bgms.has("light"):
 			bgm = bgms["light"]
+		elif bgms.has("main"):
+			bgm = bgms["main"]
+		elif world_name.contains("menu") or bgms.size() > 0:
+			bgm = bgms.values()[randi() % bgms.size()]
+	
+	if bgm.is_empty():
+		return
 	
 	var position: float = loop_start
 	if radios.size() > 0:

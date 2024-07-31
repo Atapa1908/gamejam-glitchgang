@@ -1,7 +1,10 @@
 extends CharacterBody2D
 
-var current_hp: int = 100
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var  player_ref := $"../Player"
 
+var current_hp: int = 100
+var speed := 100.0
 var attack_interval := 2.0
 var can_attack := true
 
@@ -9,6 +12,11 @@ func _ready() -> void:
 	randomize()
 
 func _physics_process(delta: float) -> void:
+	var diff = global_position.x - player_ref.global_position.x
+	diff = clamp(diff, -1, 1)
+	animated_sprite_2d.flip_h = diff <= 0
+	velocity.x = speed * diff 
+	print("%s : %s" % [velocity, diff])
 	if can_attack:
 		can_attack = false
 		match randi() % 4:
