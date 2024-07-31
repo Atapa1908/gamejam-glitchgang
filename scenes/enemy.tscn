@@ -1,18 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwp0ggym3npdq"]
+[gd_scene load_steps=10 format=3 uid="uid://bwp0ggym3npdq"]
 
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="1_vua1r"]
-[ext_resource type="Texture2D" uid="uid://brulnln6sr2sd" path="res://icon.svg" id="2_pl3ri"]
+[ext_resource type="Texture2D" uid="uid://b1arb6njxh4uj" path="res://assets/Sprites/flying spider.png" id="2_gq71t"]
 [ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_y8bsj"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bry71"]
-atlas = ExtResource("2_pl3ri")
-region = Rect2(0, 0, 128, 128)
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6f24"]
+atlas = ExtResource("2_gq71t")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj0q4"]
+atlas = ExtResource("2_gq71t")
+region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_iydbe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bry71")
+"texture": SubResource("AtlasTexture_w6f24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj0q4")
 }],
 "loop": true,
 "name": &"default",
@@ -20,16 +27,21 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_smql6"]
-radius = 61.131
+radius = 9.21954
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ubwvp"]
-size = Vector2(130, 132)
+size = Vector2(16, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7wmu3"]
+radius = 200.0
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_vua1r")
+metadata/_edit_horizontal_guides_ = [-11.0]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iydbe")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_smql6")
@@ -40,5 +52,12 @@ script = ExtResource("3_y8bsj")
 [node name="HurtBoxArea" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_ubwvp")
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_7wmu3")
+
 [connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_exited" from="Hurtbox" to="." method="_on_hurtbox_body_exited"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

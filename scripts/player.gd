@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
 @onready var Projectile = preload("res://scenes/flask.tscn")
-@onready var game = get_node("/root/Game")
+@onready var game = get_parent()
 
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
@@ -22,10 +22,15 @@ const DASH_SPEED = 350.0
 const JUMP_VELOCITY = -300.0
 
 var abilities: Dictionary = {
+<<<<<<< HEAD
 	"double_jump" : false,
 	"dash" : false,
+=======
+	"double_jump" : true,
+	"dashing" : true,
+>>>>>>> main
 	"sliding" : false,
-	"gliding" : false,
+	"gliding" : true,
 }
 
 var hit_tween: Tween
@@ -47,7 +52,7 @@ var is_attacking: bool = false
 
 ## Double Jump Count
 var jump_count = 0
-var max_jumps = 1
+var max_jumps = 2
 
 func _ready() -> void:
 	inventory_data.new_slot_data.connect(inv_updated)
@@ -116,11 +121,19 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		ranged_attack()
+		
+	if Input.is_action_just_pressed("glide"):
+		velocity.y /= 8
+		gravity = 98
+
+	
+	if Input.is_action_just_released("glide") or is_on_floor():
+		gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("dash"):
+	if Input.is_action_just_pressed("switch_realm"):
 		SceneManager.switch_realm(get_parent())
 
 func ranged_attack():

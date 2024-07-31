@@ -34,12 +34,21 @@ var worlds_data: Dictionary = {
 	},
 	"boss_one": {
 		"world_scene_path": "res://scenes/boss_one.tscn",
+
+		"inst_doors": [ # Potential doors to be found at runtime
+			"Door",
+
+		"bgms": {
+			"intro": "res://assets/BGM/Boss_01_intro.wav",
+			"main": "res://assets/BGM/Boss_01_main_loop.wav",
+	"game_2": {
+		"world_scene_path": "res://scenes/game_2.tscn",
 		"inst_doors": [ # Potential doors to be found at runtime
 			"Door",
 		],
 		"bgms": {
-			"intro": "res://assets/BGM/Boss_01_intro.wav",
-			"main": "res://assets/BGM/Boss_01_main_loop.wav",
+			"light": "res://assets/BGM/light_cave_test.wav",
+			"shadow" : "res://assets/BGM/Dark_Cave.wav",
 		}
 	},
 	"main_menu": {
