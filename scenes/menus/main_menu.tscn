@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://crjh5uaxf13g4"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_1h1lp"]
-[ext_resource type="Texture2D" uid="uid://coe1amdqe1tvt" path="res://assets/ui/Quit_Sign1.png" id="1_003cr"]
-[ext_resource type="Texture2D" uid="uid://nasevop21j8d" path="res://assets/ui/start_button.png" id="2_cb20b"]
-[ext_resource type="Texture2D" uid="uid://bxbrrvnlafor0" path="res://assets/ui/New_Piskel-1.png" id="3_r8w7v"]
+[ext_resource type="Texture2D" uid="uid://pcmh8dqb53x6" path="res://assets/ui/Quit_Sign1.png" id="1_003cr"]
+[ext_resource type="Texture2D" uid="uid://72f2m0us03lw" path="res://assets/ui/start_button.png" id="2_cb20b"]
+[ext_resource type="Texture2D" uid="uid://5xaj5tfa5tvb" path="res://assets/ui/New_Piskel-1.png" id="3_r8w7v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7ro"]
 bg_color = Color(0.226707, 0.226708, 0.226707, 1)

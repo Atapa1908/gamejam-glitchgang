@@ -32,6 +32,16 @@ var worlds_data: Dictionary = {
 			"shadow" : "res://assets/BGM/dark_forest_test.wav",
 		}
 	},
+	"boss_one": {
+		"world_scene_path": "res://scenes/boss_one.tscn",
+		"inst_doors": [ # Potential doors to be found at runtime
+			"Door",
+		],
+		"bgms": {
+			"intro": "res://assets/BGM/Boss_01_intro.wav",
+			"main": "res://assets/BGM/Boss_01_main_loop.wav",
+		}
+	},
 	"main_menu": {
 		"world_scene_path": "res://scenes/menus/main_menu.tscn",
 		"inst_doors": [],
@@ -101,15 +111,15 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 			bgm = bgms["light"]
 	
 	var position: float = loop_start
-	if radios.size() > 0 and radios[0].get_stream().resource_path == bgm:
-		position = radios[0].get_playback_position()
-		
+	if radios.size() > 0:
 		for radio in radios:
 			radio.volume_db = linear_to_db((default_volume / 2.0) / 200.0)
+	if radios[0].get_stream().resource_path == bgm:
+		position = radios[0].get_playback_position()
 	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
-	get_tree().create_timer(0.3, true, false, true).timeout.connect(
+	get_tree().create_timer(0.1, true, false, true).timeout.connect(
 		func():
 			for radio in radios:
 				if radio != new_radio:
