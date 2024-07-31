@@ -83,6 +83,7 @@ func use_slot(index: int) -> void:
 	inv_updated.emit(self)
 
 func remove_slot_data(index: int, amount: int) -> void:
+	print(amount)
 	var slot_data: SlotData = data[index]
 	if not slot_data:
 		return

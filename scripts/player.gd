@@ -23,10 +23,13 @@ const JUMP_VELOCITY = -300.0
 
 var abilities: Dictionary = {
 	"double_jump" : false,
-	"dashing" : false,
+	"dash" : false,
 	"sliding" : false,
 	"gliding" : false,
 }
+
+var hit_tween: Tween
+var i_time: float = 1.0 
 
 ## Physics vairs
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -51,7 +54,8 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	# Add the gravity.
-	velocity.y += gravity * delta
+	if not is_on_floor():
+		velocity.y += gravity * delta
 	# Decrement dash timer
 	dash_timer -= delta
 	dash_timer = clamp(dash_timer, 0, DEFAULT_DASH_TIME)
@@ -59,7 +63,7 @@ func _physics_process(delta):
 	# Chacks to see if the user wants to and can dash
 	if is_zero_approx(dash_timer) and \
 		Input.is_action_just_pressed("dash") and \
-		abilities["dashing"]:
+		abilities["dash"]:
 		dashing = true
 		dash_timer = DEFAULT_DASH_TIME
 	
@@ -138,6 +142,16 @@ func inv_updated(slot_data: SlotData) -> void:
 
 func _on_hazard_detector_area_entered(area):
 	current_hp -= 10
+	
+	# Take hit - Change shader settings
+	if hit_tween:
+			hit_tween.kill()
+		
+	hit_tween = create_tween()
+	hit_tween.tween_property(animated_sprite, "modulate", Color.RED, 0.25).set_trans(Tween.TRANS_LINEAR)
+	hit_tween.tween_property(animated_sprite, "modulate", Color.WHITE, 0.25).set_trans(Tween.TRANS_LINEAR)
+	velocity = Vector2(1000 * -last_whole_x_direction, -150)
+	
 	print(current_hp)
 
 func add_ability(ability: String) -> void:
@@ -148,10 +162,9 @@ func add_ability(ability: String) -> void:
 	
 	if ability == "double_jump":
 		max_jumps = 2
-	
+	print("%s : %s" % [ability, abilities[ability]])
 	# Pause motion, hide player sprite and play new spite frames for a short time
 	
 	# Play sound effect through scene manager
-	
 	SceneManager.play_effect_path("res://assets/audio/collect_thing.wav")
 	

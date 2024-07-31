@@ -165,7 +165,7 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 # Sound effects
 
 func play_effect_path(path: String) -> void:
-	if not path.is_valid_filename() or not path.is_absolute_path():
+	if not path.is_empty():
 		return
 	play_effect(load(path))
 

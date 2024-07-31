@@ -1,3 +1,73 @@
-[gd_scene format=3 uid="uid://duvo3fbgotj4w"]
+[gd_scene load_steps=10 format=3 uid="uid://duvo3fbgotj4w"]
+
+[ext_resource type="Script" path="res://scripts/boss_one.gd" id="1_rf418"]
+[ext_resource type="Texture2D" uid="uid://ce20xnrdt70jb" path="res://assets/Sprites/centipedeattck 2.png" id="2_i16yr"]
+[ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="3_cj8rt"]
+[ext_resource type="Script" path="res://scripts/Boss.gd" id="3_miymb"]
+[ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_6vgmx"]
+[ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_epjbx"]
+[ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_ap0rf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5plr"]
+atlas = ExtResource("2_i16yr")
+region = Rect2(0, 0, 500, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgopm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5plr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="BossOne" type="Node2D"]
+script = ExtResource("1_rf418")
+
+[node name="Player" parent="." instance=ExtResource("3_cj8rt")]
+position = Vector2(0, -7)
+
+[node name="Boss" type="CharacterBody2D" parent="."]
+position = Vector2(-43, -3)
+script = ExtResource("3_miymb")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss"]
+polygon = PackedVector2Array(-20, -6, -25, 6, -24, 23, -17, 26, -2, 29, 11, 29, 16, 14, 22, 11, 23, 8, 23, 3, 20, 2, 15, -3, 4, 7, 1, 4, 4, -11, 7, -16, 0, -25, -13, -24, -16, -18, -21, -15)
+
+[node name="Area2D" type="Area2D" parent="Boss"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Boss/Area2D"]
+polygon = PackedVector2Array(-20, -6, -25, 6, -24, 23, -17, 26, -2, 29, 11, 29, 16, 14, 22, 11, 23, 8, 23, 3, 20, 2, 15, -3, 4, 7, 1, 4, 4, -11, 7, -16, 0, -25, -13, -24, -16, -18, -21, -15)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss"]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_lgopm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryInterface" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_6vgmx")
+metadata/_edit_use_anchors_ = true
+
+[node name="PlayerInventory" parent="CanvasLayer/InventoryInterface" instance=ExtResource("5_epjbx")]
+unique_name_in_owner = true
+layout_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="GrabbedSlot" parent="CanvasLayer/InventoryInterface" instance=ExtResource("6_ap0rf")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+
+[connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
+[connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]
