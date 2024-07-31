@@ -33,6 +33,16 @@ var worlds_data: Dictionary = {
 			"shadow" : "res://assets/BGM/dark_forest_test.wav",
 		}
 	},
+	"game_2": {
+		"world_scene_path": "res://scenes/game_2.tscn",
+		"inst_doors": [ # Potential doors to be found at runtime
+			"Door",
+		],
+		"bgms": {
+			"light": "res://assets/BGM/light_cave_test.wav",
+			"shadow" : "res://assets/BGM/Dark_Cave.wav",
+		}
+	},
 	"main_menu": {
 		"world_scene_path": "res://scenes/menus/main_menu.tscn",
 		"inst_doors": [],

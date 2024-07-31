@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var hit_box_area: CollisionShape2D = $HitBox/HitBoxArea
 
 @onready var Projectile = preload("res://scenes/flask.tscn")
-@onready var game = get_node("/root/Game")
+@onready var game = get_parent()
 
 @export var inventory_data: InventoryData
 @export_range(0.1, 0.5, 0.01, "or_greater") var DEFAULT_DASH_TIME: float = 0.3
@@ -25,7 +25,7 @@ var abilities: Dictionary = {
 	"double_jump" : true,
 	"dashing" : true,
 	"sliding" : false,
-	"gliding" : false,
+	"gliding" : true,
 }
 
 ## Physics vairs

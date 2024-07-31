@@ -3,22 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://ctuviu0ywg71e" path="res://scenes/player.tscn" id="1_igeqn"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_l5um2"]
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
-[ext_resource type="Texture2D" uid="uid://brfqandv742ks" path="res://assets/cave_background-1.png" id="3_wncwi"]
+[ext_resource type="Texture2D" uid="uid://bge62kisv16y" path="res://assets/cave_background-1.png" id="3_wncwi"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
 [ext_resource type="PackedScene" uid="uid://br51i58wkqq6u" path="res://scenes/door.tscn" id="4_p024i"]
 [ext_resource type="PackedScene" uid="uid://cxpda7bof2fam" path="res://scenes/hazard_area.tscn" id="5_2n33u"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
-[ext_resource type="Texture2D" uid="uid://yxyhba4ygivr" path="res://assets/sprites/Items.png" id="6_wn7di"]
-[ext_resource type="Texture2D" uid="uid://cp61wpgsnraw8" path="res://assets/sprites/crys3.png" id="8_efiuv"]
+[ext_resource type="Texture2D" uid="uid://dyx1xx3enbaf6" path="res://assets/sprites/Items.png" id="6_wn7di"]
+[ext_resource type="Texture2D" uid="uid://d4gy3it7mih7x" path="res://assets/sprites/crys3.png" id="8_efiuv"]
 [ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
 [ext_resource type="PackedScene" uid="uid://b1rn2rj504wqh" path="res://scenes/cauldron.tscn" id="9_xlqup"]
-[ext_resource type="Texture2D" uid="uid://bsfu2apev64qh" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
+[ext_resource type="Texture2D" uid="uid://cgfx2a1sfpyt6" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
 [ext_resource type="Resource" uid="uid://cyxp4dsp2yn23" path="res://resources/inventory_data/fruit/berry.tres" id="10_hcyoy"]
 [ext_resource type="PackedScene" uid="uid://dfuksb22mswe5" path="res://scenes/platform.tscn" id="10_ndkeo"]
-[ext_resource type="Texture2D" uid="uid://ckp3f85uh06ml" path="res://assets/sprites/Skeleton_dance-1.png" id="17_4r7qi"]
-[ext_resource type="Texture2D" uid="uid://d1jqbjcndb6q6" path="res://assets/sprites/Raspberry_fruit-1.png" id="18_woi6p"]
-[ext_resource type="Texture2D" uid="uid://cdn7rtjqsyklw" path="res://assets/Spikes.png" id="19_usmko"]
+[ext_resource type="Texture2D" uid="uid://cnyiimdderv2p" path="res://assets/sprites/Skeleton_dance-1.png" id="17_4r7qi"]
+[ext_resource type="Texture2D" uid="uid://ea2k8r5x7lwn" path="res://assets/sprites/Raspberry_fruit-1.png" id="18_woi6p"]
+[ext_resource type="Texture2D" uid="uid://cu6fd4tn30ir7" path="res://assets/Spikes.png" id="19_usmko"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
 atlas = ExtResource("6_wn7di")
@@ -1016,6 +1016,7 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l5um2")
 packed_pickup = ExtResource("2_8wd3k")
+metadata/_edit_vertical_guides_ = [-1027.0]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -1163,5 +1164,4 @@ position = Vector2(1018, -414)
 texture = ExtResource("17_4r7qi")
 
 [connection signal="body_entered" from="Crystal" to="." method="_on_crystal_body_entered"]
-[connection signal="drop_slot_data" from="CanvasLayer/InventoryInterface" to="." method="_on_inventory_interface_drop_slot_data"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]
