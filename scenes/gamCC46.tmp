@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cdw770qy1hiy1" path="res://scenes/inventory/pickup.tscn" id="2_8wd3k"]
 [ext_resource type="Texture2D" uid="uid://c61vtjmr7ekt6" path="res://assets/Shadow_cave_background-1.png" id="3_ib0x0"]
 [ext_resource type="Script" path="res://scripts/inventory/InventoryInterface.gd" id="4_8j2ra"]
+[ext_resource type="PackedScene" uid="uid://br51i58wkqq6u" path="res://scenes/door.tscn" id="4_p024i"]
 [ext_resource type="PackedScene" uid="uid://cxpda7bof2fam" path="res://scenes/hazard_area.tscn" id="5_2n33u"]
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="Script" path="res://resource scripts/inventory/slot_data/slot_data.gd" id="6_84nxx"]
@@ -1050,9 +1051,6 @@ terrain_set_0/terrain_3/color = Color(0.375, 0.5, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_wktss")
 sources/1 = SubResource("TileSetAtlasSource_xiueu")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uod83"]
-size = Vector2(36, 46)
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_l5um2")
 packed_pickup = ExtResource("2_8wd3k")
@@ -1075,7 +1073,7 @@ position = Vector2(-2, 182)
 texture = ExtResource("3_ib0x0")
 
 [node name="Player" parent="." instance=ExtResource("1_igeqn")]
-position = Vector2(64, -8)
+position = Vector2(1, -70)
 
 [node name="Items" type="Node2D" parent="."]
 
@@ -1104,6 +1102,14 @@ position = Vector2(2441, 37)
 slot_data = SubResource("Resource_xxo6q")
 
 [node name="Doors" type="Node2D" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("4_p024i")]
+position = Vector2(207, -616)
+scene_name = "main_menu"
+scene_door_name = "Door"
+
+[node name="Marker2D" type="Marker2D" parent="Doors/Door"]
+position = Vector2(71, 3)
 
 [node name="Hazards" type="Node2D" parent="."]
 
@@ -1182,33 +1188,33 @@ polygon = PackedVector2Array(-16, 29, -16, 18, -8, 4, -6, -21, 1, -28, 9, -21, 1
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Enemies"]
+[node name="SkeletonDance-2" type="Sprite2D" parent="Enemies"]
 position = Vector2(2243, 33)
-
-[node name="SkeletonDance-2" type="Sprite2D" parent="Enemies/StaticBody2D"]
 texture = ExtResource("17_4r7qi")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Enemies/SkeletonDance-2"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/SkeletonDance-2/StaticBody2D"]
 polygon = PackedVector2Array(-16, -32, -16, 29, 16, 29, 12, -29)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Enemies"]
+[node name="SkeletonDance-3" type="Sprite2D" parent="Enemies"]
 position = Vector2(2130, -351)
-
-[node name="SkeletonDance-3" type="Sprite2D" parent="Enemies/StaticBody2D2"]
 texture = ExtResource("17_4r7qi")
 flip_h = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/StaticBody2D2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Enemies/SkeletonDance-3"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/SkeletonDance-3/StaticBody2D"]
 polygon = PackedVector2Array(-16, -96, -16, 29, 16, 29, 10, -96)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Enemies"]
+[node name="SkeletonDance-4" type="Sprite2D" parent="Enemies"]
 position = Vector2(1018, -414)
-
-[node name="SkeletonDance-4" type="Sprite2D" parent="Enemies/StaticBody2D3"]
 texture = ExtResource("17_4r7qi")
 flip_h = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/StaticBody2D3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Enemies/SkeletonDance-4"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemies/SkeletonDance-4/StaticBody2D"]
 polygon = PackedVector2Array(-16, -32, -16, 29, 21, 31, 19, -33)
 
 [node name="Cauldron" parent="." instance=ExtResource("9_xlqup")]
@@ -1253,13 +1259,6 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 0
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(215, -616)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-shape = SubResource("RectangleShape2D_uod83")
-
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="Crystal" to="." method="_on_crystal_body_entered"]
 [connection signal="gui_input" from="CanvasLayer/InventoryInterface" to="CanvasLayer/InventoryInterface" method="_on_gui_input"]
-[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

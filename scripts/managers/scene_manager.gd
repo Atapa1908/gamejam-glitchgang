@@ -1,15 +1,14 @@
 extends Node
 
-
 #var current_scene: String = ""
 # 
-var wait_time: float = 1.5
+var wait_time: float = 0.0
 var last_door: String = ""
 var backdrop = preload("res://scenes/backdrop.tscn").instantiate()
 var shadow_world: bool = false
 var can_shadow: bool = false
 var shadow_time: float = 3.0
-var default_volume: float = 00.0:
+var default_volume: float = 50.0:
 	set(val):
 		default_volume = clamp(val, 0.0, 200.0)
 var first_time: bool = true
@@ -33,9 +32,19 @@ var worlds_data: Dictionary = {
 			"shadow" : "res://assets/BGM/dark_forest_test.wav",
 		}
 	},
+	"boss_one": {
+		"world_scene_path": "res://scenes/boss_one.tscn",
+		"inst_doors": [ # Potential doors to be found at runtime
+			"Door",
+		],
+		"bgms": {
+			"intro": "res://assets/BGM/Boss_01_intro.wav",
+			"main": "res://assets/BGM/Boss_01_main_loop.wav",
+		}
+	},
 	"game_2": {
 		"world_scene_path": "res://scenes/game_2.tscn",
-		"inst_doors": [ # Potential doors to be found at runtime
+		"inst_doors": [
 			"Door",
 		],
 		"bgms": {
@@ -58,6 +67,7 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	backdrop.process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().current_scene.add_sibling.call_deferred(backdrop)
+	print(backdrop)
 	music_transition("main_menu")
 	
 
@@ -83,13 +93,12 @@ func transition(world_name: String, door_name: String) -> void:
 	
 	get_tree().change_scene_to_file.call_deferred(worlds_data[world_name]["world_scene_path"])
 	
-	fade_in()
-	
 
 func fade_out() -> void:
 	backdrop.show()
 	get_tree().paused = true
 	Engine.time_scale = 0.0
+	
 
 func fade_in() -> void:
 	await get_tree().create_timer(wait_time, true, false, true).timeout
@@ -106,21 +115,26 @@ func music_transition(world_name: String, bgm: String = "") -> void:
 		
 		if shadow_world and bgms.has("shadow"):
 			bgm = bgms["shadow"]
-		elif world_name.contains("menu"):
-			bgm = bgms.values()[randi() % bgms.size()]
-		else:
+		elif bgms.has("light"):
 			bgm = bgms["light"]
+		elif bgms.has("main"):
+			bgm = bgms["main"]
+		elif world_name.contains("menu") or bgms.size() > 0:
+			bgm = bgms.values()[randi() % bgms.size()]
+	
+	if bgm.is_empty():
+		return
 	
 	var position: float = loop_start
+	if radios.size() > 0:
+		for radio in radios:
+			radio.volume_db = linear_to_db((default_volume / 2.0) / 200.0)
 	if radios.size() > 0 and radios[0].get_stream().resource_path == bgm:
 		position = radios[0].get_playback_position()
-		
-		for radio in radios:
-			radio.volume_db = linear_to_db(default_volume / 200.0)
 	
 	var new_radio: AudioStreamPlayer = create_new_radio(bgm, default_volume / 2, position)
 	radios.append(new_radio)
-	get_tree().create_timer(0.3, true, false, true).timeout.connect(
+	get_tree().create_timer(0.1, true, false, true).timeout.connect(
 		func():
 			for radio in radios:
 				if radio != new_radio:
@@ -137,7 +151,7 @@ func loop_song(time_left: float, start_time: float = 0.0) -> void:
 	radios.append(
 		create_new_radio(
 			radios[0].stream.resource_path,
-			db_to_linear(radios[0].volume_db) / 2,
+			default_volume / 2,
 			start_time
 		)
 	)
@@ -176,7 +190,7 @@ func create_new_radio(new_bgm: String, volume: float, position: float = 0.0) -> 
 # Sound effects
 
 func play_effect_path(path: String) -> void:
-	if not path.is_valid_filename() or not path.is_absolute_path():
+	if not path.is_empty():
 		return
 	play_effect(load(path))
 

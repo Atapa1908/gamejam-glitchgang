@@ -1,20 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://crjh5uaxf13g4"]
+[gd_scene load_steps=17 format=3 uid="uid://crjh5uaxf13g4"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_1h1lp"]
-[ext_resource type="Texture2D" uid="uid://5qo3i14kqev" path="res://assets/ui/Quit_Sign1.png" id="1_003cr"]
-[ext_resource type="Texture2D" uid="uid://fia6bn72hx7f" path="res://assets/ui/start_button.png" id="2_cb20b"]
-[ext_resource type="Texture2D" uid="uid://byf056360ouqw" path="res://assets/ui/New_Piskel-1.png" id="3_r8w7v"]
+[ext_resource type="Texture2D" uid="uid://cve1unl7o5hb1" path="res://assets/Start_Button_1.png" id="2_cb63n"]
+[ext_resource type="Texture2D" uid="uid://b3r5iq787mxqp" path="res://assets/Forest-1.png" id="2_ih0cd"]
+[ext_resource type="Texture2D" uid="uid://df1a36sskldec" path="res://assets/Start_Button_2.png" id="3_dewt5"]
+[ext_resource type="Texture2D" uid="uid://bsl016525lr4o" path="res://assets/Forestmerged-2.png" id="3_rigoa"]
+[ext_resource type="Texture2D" uid="uid://yticvp7sjyi5" path="res://assets/Setting_button_1.png" id="4_3kwa3"]
+[ext_resource type="Texture2D" uid="uid://dw8iciuhu03yb" path="res://assets/forestmered-4(2).png" id="4_lt54o"]
+[ext_resource type="Texture2D" uid="uid://upwvs8yrou2v" path="res://assets/Quit_Button_1.png" id="5_44oo0"]
+[ext_resource type="Texture2D" uid="uid://ct6k3v5n6m01b" path="res://assets/Forest-3.1.png" id="5_ku5hj"]
+[ext_resource type="Texture2D" uid="uid://cyn4iu2kj0g1l" path="res://assets/Quit_Button_2.png" id="6_80ad3"]
+[ext_resource type="Texture2D" uid="uid://cpqow56nveok1" path="res://assets/Forest-6.png" id="6_i3ba8"]
+[ext_resource type="Texture2D" uid="uid://dwb77vkxdsuge" path="res://assets/Forestmerged-7.png" id="7_ci66t"]
+[ext_resource type="Texture2D" uid="uid://c355fy83wni41" path="res://assets/Title_Screen_Box-1.png" id="7_t4a22"]
+[ext_resource type="Texture2D" uid="uid://brj1wntleycc7" path="res://assets/Forestmerged-8.png" id="8_f4swk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vt7ro"]
-bg_color = Color(0.226707, 0.226708, 0.226707, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-expand_margin_left = 15.0
-expand_margin_top = 15.0
-expand_margin_right = 15.0
-expand_margin_bottom = 15.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dl8qj"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_60a7h"]
+color = Color(0.2, 0.54902, 0.0862745, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +29,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1h1lp")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.34902, 0.627451, 0.203922, 1)
+
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -32,6 +45,78 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_ih0cd")
+stretch_mode = 6
+
+[node name="Background8" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_rigoa")
+stretch_mode = 6
+
+[node name="Background2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_lt54o")
+stretch_mode = 6
+
+[node name="Background3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ku5hj")
+stretch_mode = 6
+
+[node name="Background4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i3ba8")
+stretch_mode = 6
+
+[node name="Background5" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_i3ba8")
+stretch_mode = 6
+
+[node name="Background6" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ci66t")
+stretch_mode = 6
+
+[node name="Background7" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_f4swk")
+stretch_mode = 6
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -43,17 +128,20 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_vt7ro")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_dl8qj")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
 
 [node name="Start" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("2_cb20b")
-stretch_mode = 5
+texture_normal = ExtResource("2_cb63n")
+texture_pressed = ExtResource("3_dewt5")
+stretch_mode = 1
+
+[node name="HSeparator" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_60a7h")
 
 [node name="Settings" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
 modulate = Color(1, 1, 1, 0.521569)
@@ -61,15 +149,25 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 disabled = true
-texture_normal = ExtResource("3_r8w7v")
+texture_normal = ExtResource("4_3kwa3")
+texture_pressed = ExtResource("4_3kwa3")
 stretch_mode = 5
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_60a7h")
 
 [node name="Quit" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("1_003cr")
+texture_normal = ExtResource("5_44oo0")
+texture_pressed = ExtResource("6_80ad3")
 stretch_mode = 5
+
+[node name="TitleScreenBox-1" type="Sprite2D" parent="."]
+position = Vector2(644, 119)
+texture = ExtResource("7_t4a22")
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

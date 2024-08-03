@@ -26,3 +26,7 @@ func _on_body_entered(hitbox: HitBox) -> void:
 		
 	if owner.has_method("take_damage"):
 		owner.take_damage(hitbox.damage)
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()
