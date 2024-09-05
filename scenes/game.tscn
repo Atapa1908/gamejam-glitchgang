@@ -9,17 +9,30 @@
 [ext_resource type="PackedScene" uid="uid://cflupa8oq6kte" path="res://scenes/inventory/inventory.tscn" id="5_5d1qk"]
 [ext_resource type="Script" path="res://resource scripts/inventory/slot_data/slot_data.gd" id="6_84nxx"]
 [ext_resource type="PackedScene" uid="uid://bcalj77kdivbs" path="res://scenes/inventory/slot.tscn" id="6_jrkui"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://cpy82rqx8rjp7" path="res://assets/Sprites/Items.png" id="6_wn7di"]
 [ext_resource type="Texture2D" uid="uid://4rpqy2o4v7l0" path="res://assets/Sprites/crys3.png" id="8_efiuv"]
+=======
+[ext_resource type="Texture2D" uid="uid://dyx1xx3enbaf6" path="res://assets/Sprites/Items.png" id="6_wn7di"]
+[ext_resource type="Texture2D" uid="uid://d4gy3it7mih7x" path="res://assets/Sprites/crys3.png" id="8_efiuv"]
+[ext_resource type="PackedScene" uid="uid://da8gt0mbhxhu3" path="res://scenes/hazard.tscn" id="9_rwpmd"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://b1rn2rj504wqh" path="res://scenes/cauldron.tscn" id="9_xlqup"]
 [ext_resource type="Texture2D" uid="uid://c40nl7fx0wqq4" path="res://assets/Tilemaps/forest_tilemap.png" id="10_4by0m"]
 [ext_resource type="Resource" uid="uid://cyxp4dsp2yn23" path="res://resources/inventory_data/fruit/berry.tres" id="10_hcyoy"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dxjaoa8773uhm" path="res://assets/Sprites/Skeleton_dance-1.png" id="17_4r7qi"]
 
 [sub_resource type="Resource" id="Resource_xxo6q"]
 script = ExtResource("6_84nxx")
 item_data = ExtResource("10_hcyoy")
 quantity = 1
+=======
+[ext_resource type="PackedScene" uid="uid://dfuksb22mswe5" path="res://scenes/platform.tscn" id="10_ndkeo"]
+[ext_resource type="Texture2D" uid="uid://cnyiimdderv2p" path="res://assets/Sprites/Skeleton_dance-1.png" id="17_4r7qi"]
+[ext_resource type="Texture2D" uid="uid://ea2k8r5x7lwn" path="res://assets/Sprites/Raspberry_fruit-1.png" id="18_woi6p"]
+[ext_resource type="Texture2D" uid="uid://cu6fd4tn30ir7" path="res://assets/Spikes.png" id="19_usmko"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvyiu"]
 atlas = ExtResource("6_wn7di")
